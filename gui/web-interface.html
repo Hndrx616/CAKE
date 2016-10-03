@@ -1,0 +1,1659 @@
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://rendro.github.io/easy-pie-chart/javascripts/jquery.easy-pie-chart.js"></script>
+<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Kanit:400,500,300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>GIG Analytics Tool</title>
+</head>
+<body>
+<div class='sidebar'>
+    <div class='navigation-elm'><span class='nav-text'><i class="fa fa-fw fa-area-chart"></i><span class='text-short'>Analytics</span> <span class='text-long'>Dashboard</span></span></div>
+    <div class='sub-navigation-elm'>Site Performance</div><div class='sub-navigation-elm'>Competitive Landscape</div> <div class='sub-navigation-elm'>Logistics Report</div><div class='sub-navigation-elm'>Get Traffic</div>
+    <div id="hill-link" class='navigation-elm'><span class='nav-text'><i class="fa fa-fw fa-newspaper-o"></i><span class='text-short'>Campaign</span> <span class='text-long'>Overview</span></span></div>
+    <div id="hill-link2"class='navigation-elm'><span class='nav-text'><i class="fa fa-fw fa-users"></i><span class='text-short'>Customer</span> <span class='text-long'>Database</span></span></div>
+    <div id="hill-link3" class='navigation-elm'><span class='nav-text'><i class="fa fa-fw fa-users"></i><span class='text-short'>SEO</span> <span class='text-long'>Tools</span></span></div>
+    <div id="hill-link4" class='navigation-elm'><span class='nav-text'><i class="fa fa-fw fa-comment"></i><span class='text-short'>Community</span> <span class='text-long'>Updates</span><div class='update-number'>3</div></span></div>
+    <div id="hill-link5" class='navigation-elm'><span class='nav-text'><i class="fa fa-fw fa-comment"></i><span class='text-short'>Messages</span><div class='update-number'>5</div></span></div>
+    <div id="hill-link6" class='navigation-elm'><span class='nav-text'><i class="fa fa-fw fa-gear"></i><span class='text-short'>Settings</span></span></div>
+  </div>
+  
+<div class="v-tab"><ul class="tab__head">
+<li id="t1" rel="tab1" style="font-size:14px;"><input id="radio-input-1" type="radio" value="myValue 1" name="radio-group"><label for="radio-input-1" class="input-helper input-helper--radio">
+<p>Dashboard</p></label></li>
+<li id="t2" rel="tab2" style="font-size:14px;"><input id="radio-input-2" type="radio" value="myValue 2" name="radio-group"><label for="radio-input-2" class="input-helper input-helper--radio">
+<p>Metrics</p></label></li>
+<li id="t3" rel="tab3" style="font-size:14px;"><input id="radio-input-3" type="radio" value="myValue 3" name="radio-group"><label for="radio-input-3" class="input-helper input-helper--radio">
+<p>Page Detail</p></label></li>
+<li id="t4" rel="tab4" style="font-size:14px;"><input id="radio-input-4" type="radio" value="myValue 4" name="radio-group"><label for="radio-input-4" class="input-helper input-helper--radio">
+<p>Monitor</p></label></li>
+<li id="t5" rel="tab5" style="font-size:14px;"><input id="radio-input-5" type="radio" value="myValue 5" name="radio-group"><label for="radio-input-5" class="input-helper input-helper--radio">
+<p>CDN Search</p></label></li>
+<li id="t6" rel="tab6" style="font-size:14px;"><input id="radio-input-6" type="radio" value="myValue 6" name="radio-group"><label for="radio-input-6" class="input-helper input-helper--radio">
+<p>Workflow</p></label></li>
+</ul>
+<br>
+<div class="tab__container">
+<div id="tab1" class="tab__content">
+<div class="picboxnoteslv" style="padding: 2px 2px; margin-top:35px;"><div class="picboxsilver-old" style="padding: 2px;" ><div class="picboxsilver-gradient-old" style="padding: 2px;" ><div class="borderbox40" style="padding: 2px 2px;"><div style="margin-left:5px;"><span style="font-family: Arial; font-size: 110%;"><span style="font-family: Arial; font-size: 100%;">
+<div class='coverlay'>
+<div class='horizontal-bar-element'>
+<span style="padding: 1em;"><u>Daily Visits</u></span>
+<div class="horizontal-bar-graph" id="my-graph"></div></div>
+<div class="chart-line-element" style="margin-left:-2.5px;">
+<div id="Graph"></div>
+</div>
+<table style="float:right;"><tbody><tr><td>
+<div class="dashwrap">
+  	<div class="dashheader"><span>Keywords</span><div style="margin:0 0 0 1.5em;" class="dropdown">
+    <select name="one" class="dropdown-select">
+      <option value="">Select…</option><option value="1">Visits</option><option value="2">Bounce Rate</option><option value="3">Links</option></select>
+  </div></div>
+		<div class="dashwrap-list">
+			<ol class="dashlist">
+				<li><div class="label">Keyword Not Defined &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 165</div></li>
+				<li><div class="label">Internal Server Error&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;28</div></li>
+        		<li><div class="label">All Websites&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;<em>N/A</em></div></li>
+				<li><div class="label">Forums&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;<em>N/A</em></div></li>
+				<li><div class="label">Images not in tcpdf report&emsp;&emsp;&emsp;&emsp;&emsp;1</div></li>
+			</ol>
+			<span style="margin-left:0.5em;"><input type="text" value="&nbsp;search..."><a href="#" style="margin-left:2.5em;color:blue;">NEXT>></a></span>
+		</div>
+	</div>
+</div></td><td>
+<div class="dashwrap">
+  	<div class="dashheader"><span>Referrer Sites</span><div style="margin:0 0 0 1.5em;" class="dropdown">
+    <select name="one" class="dropdown-select">
+      <option value="">Select…</option><option value="1">Visits</option><option value="2">Bounce Rate</option><option value="3">Links</option></select>
+  </div></div>
+		<div class="dashwrap-list">
+			<ol class="dashlist">
+				<li><div class="label">Keyword Not Defined &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <em>N/A</em></div></li>
+				<li><div class="label">Internal Server Error &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <em>N/A</em></div></li>
+        		<li><div class="label">All Websites&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;<em>N/A</em></div></li>
+				<li><div class="label">Forums&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;<em>N/A</em></div></li>
+				<li><div class="label">Images not in tcpdf report&emsp;&emsp;&emsp;&emsp; <em>N/A</em></div></li>
+			</ol>
+			<span style="margin-left:0.5em;"><input type="text" value="&nbsp;search..."><a href="#" style="margin-left:2.5em;color:blue;">NEXT>></a></span>
+		</div>
+	</div>
+</div></td></tr><tr>
+<td><div class="dashwrap">
+  	<div class="dashheader"><span style="margin-left:-10px;">Search Engine</span><div style="margin:0 0 0 0.5em;" class="dropdown">
+    <select name="one" class="dropdown-select">
+      <option value="">Select…</option><option value="1">Visits</option><option value="2">Bounce Rate</option><option value="3">Links</option></select>
+  </div></div>
+		<div class="dashwrap-list">
+			<ol class="dashlist">
+				<li><div class="label">Google &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <em>N/A</em></div></li>
+				<li><div class="label">Bing&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<em>N/A</em></div></li>
+				<li><div class="label">Ask&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<em>N/A</em></div></li>
+        		<li><div class="label">Yahoo &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <em>N/A</em></div></li>
+				<li><div class="label">Live Search&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<em>N/A</em></div></li>
+			</ol>
+			<span style="margin-left:0.5em;"><input type="text" value="&nbsp;search..."><a href="#" style="margin-left:2.5em;color:blue;">NEXT>></a></span>
+		</div>
+	</div></td>
+	<td>
+<div class="dashwrap">
+  	<div class="dashheader"><span style="margin-left:-10px;">Visit Browsers</span><div style="margin:0 0 0 0.5em;" class="dropdown">
+    <select name="one" class="dropdown-select">
+      <option value="">Select…</option><option value="1">Visits</option><option value="2">Bounce Rate</option><option value="3">Links</option></select>
+  </div></div>
+		<div class="dashwrap-list">
+			<ol class="dashlist">
+				<li><div class="label">Chrome &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <em>N/A</em></div></li>
+				<li><div class="label">Firefox&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <em>N/A</em></div></li>
+				<li><div class="label">Explorer&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <em>N/A</em></div></li>
+        		<li><div class="label">Safari&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <em>N/A</em></div></li>
+				<li><div class="label">Opera &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <em>N/A</em></div></li>
+			</ol>
+			<span style="margin-left:0.5em;"><input type="text" value="&nbsp;search..."><a href="#" style="margin-left:2.5em;color:blue;">NEXT>></a></span>
+		</div>
+	</div></td></tr></tbody></table>
+	<main>
+<h4 style="text-align:center;"><u>Traffic Sources</u></h4>
+  <section>
+    <div class="pieID pie"></div>
+    <ul class="pieID legend">
+      <li><em>Direct</em><span>400</span></li>
+      <li><em>Referral</em><span>310</span></li>
+      <li><em>Organics</em><span>260</span></li>
+      <li><em>Feed</em><span>30</span></li>
+    </ul>
+  </section>
+  </main>
+  <div class='row'>
+    <div class='piechart-element'><div class='piechart-label'>
+        <div class='label-heading'>New Visits</div>
+        <p class='small'>The percentage of visitors to the website who were unique new visitors browsing.<span class='main-color'>5% decrease</span>.</p></div><div id="container"><div class="chartrotate" data-percent="68"><div class='piechart-percent main-color'>68%</div></div></div>
+      </div>
+    <div class='piechart-element'><div class='piechart-label'>
+        <div class='label-heading'>Bounce Rate</div>
+        <p class='small'>The percentage of visitors to the website who navigate away from the site after viewing only one page.<span class='main-color'> 24% increase</span>.</p></div><div id="container"><div class="chartrotate" data-percent="49"><div class='piechart-percent main-color'>49%</div></div></div>
+        </div>
+    <div class='piechart-element'><div class='piechart-label'>
+        <div class='label-heading'>Links Clicked</div>
+        <p class='small'>The number of links clicked that were in relation to in site bounces and of that of our top keyword search.<span class='main-color'>15% increase</span>.</p></div><div id="container"><div class="chartrotate" data-percent="34"><div class='piechart-percent main-color'>34%</div></div></div>
+        </div>
+  </div>
+</div>
+</span></span></div></div></div><div class="picboxpage-shadow-old"></div></div></div></div>
+
+<div id="tab2" class="tab__content">
+<div class="picboxnoteslv" style="padding: 2px 2px; margin-top:35px;"><div class="picboxsilver-old" style="padding: 2px;" ><div class="picboxsilver-gradient-old" style="padding: 2px;" ><div class="borderbox40" style="padding: 2px 2px;"><div style="margin-left:5px;"><span style="font-family: Arial; font-size: 110%;"><span style="font-family: Arial; font-size: 100%;">
+<div class='element-header social'>Regional Performance Metrics</div>
+<div class='row'><div class='stats-element'><div class='stats-container' id='stats-element'>
+        <div class='map-container'>
+          <div class='position-marker'></div><div class='position-marker no2'></div><div class='position-marker no3'></div><div class='position-marker no4'></div><div class='position-marker no5'></div><div class='position-marker no6'></div>
+        </div>
+        <div class='stats-table'>
+          <div class='table-header'>
+            <div class='country-select'>NORAM</div><div class='country-select'>EMEA</div><div class='country-select'>CIS</div><div class='country-select'>APAC</div><div class='country-select'>NACE</div><div class='country-select'>NCSA</div><div class='country-select'>LATAM</div>
+          </div>
+          <table class='performance-table'><tbody>
+              <tr><td></td><td>Visits</td><td>Unique Visits</td><td>Page Views</td><td>Avg. Visit Duration</td><td>Bounce Rate</td><td>Page Per Visit</td></tr>
+              <tr><td class='table-desc'>Today</td><td>160</td><td>131</td><td>407</td><td>0:05:25</td><td>60.98%</td><td>2.34</td></tr>
+              <tr><td class='table-desc'>Week to Date</td><td>1,220</td><td>918</td><td>2854</td><td>0:03:21</td><td>60.98%</td><td>2.34</td></tr>
+              <tr><td class='table-desc'>Month to Date</td><td>4,480</td><td>3,668</td><td>11.3k</td><td>0:03:21</td><td>60.98%</td><td>9.36</td></tr>
+              <tr><td class='table-desc'>Year to Date</td><td>44k</td><td>37k</td><td>136.7k</td><td>0:05:25</td><td>60.98%</td><td>112.32</td></tr>
+            </tbody></table></div></div></div>
+    <div class='order-element'>
+      <div class='element-header'></div>
+      <div class='order-scroll up' id='order-scrollup'><i class="fa fa-chevron-up"></i></div>
+      <div class='order-container' id='order-container'>
+        <div class='order-item' id='order-item'>
+          <h4>Ping #413-8148622</h4>
+          <p>Status: <span class='main-color'>Finished</span><br>IPv6: 9851 1199 72</p>
+          <p>Order Date: 06/21/16 03:03:29<br> Customer Contact: test.clark@gmail.com</p>
+        </div>
+        <div class='order-item'>
+          <h4>Ping #313-55416218</h4>
+          <p>Status: <span class='main-color'>Finished</span><br>IPv6: 1431 2349 11</p>
+          <p>Date: 06/21/16 03:04:21<br> Customer Contact: random.guy@gmail.com</p>
+        </div>
+        <div class='order-item highlight'>
+          <h4>Ping #535-71122781</h4>
+          <p>Status: <span class='highlight'>Awaiting Connection</span><br>IPv6: -</p>
+          <p>Date: 06/21/16 03:04:30<br> Customer Contact: aname.store@aol.com</p>
+        </div>
+        <div class='order-item highlight'>
+          <h4>Ping #455-51133742</h4>
+          <p>Status: <span class='highlight'>Awaiting Connection</span><br>IPv6: -</p>
+          <p>Date: 06/21/16 03:05:21<br> Customer Contact: special.order@yahoo.com</p>
+        </div>
+        <div class='order-item hold'>
+          <h4>Ping #734-45422551</h4>
+          <p>Status: <span class='inactive'>On Hold</span><br>IPv6: -</p>
+          <p>Date: 06/21/16<br> Customer Contact: nobody123@gmail.com</p>
+        </div>
+        <div class='order-item hold'>
+          <h4>Ping #532-13422331</h4>
+          <p>Status: <span class='inactive'>On Hold</span><br>IPv6: -</p>
+          <p>Date: 06/21/16<br> Customer Contact: random333.star@gmail.com</p>
+        </div>
+        <div class='order-item hold'>
+          <h4>Ping #922-25491351</h4>
+          <p>Status: <span class='inactive'>On Hold</span><br>IPv6: -</p>
+          <p>Date: 06/21/16<br> Customer Contact: santa@gmail.com</p>
+        </div></div><div class='order-scroll' id='order-scrolldown'><i class="fa fa-chevron-down"></i></div></div></div>
+</span></span></div></div></div><div class="picboxpage-shadow-old"></div></div></div></div>
+
+<div id="tab3" class="tab__content">
+<div class="picboxnoteslv" style="padding: 2px 2px; margin-top:35px;"><div class="picboxsilver-old" style="padding: 2px;" ><div class="picboxsilver-gradient-old" style="padding: 2px;" ><div class="borderbox40" style="padding: 2px 2px;"><div style="margin-left:5px;"><span style="font-family: Arial; font-size: 110%;"><span style="font-family: Arial; font-size: 100%;">
+<div class='element-header social'>Page Detail</div>
+<div class='coverlay'>
+<div class="spacingbox">
+<table><tbody><tr><td><input type="text" style="width:150%;" value="Enter URL..."></td><td><input style="margin-left:6em;" type="submit" value="Enter"></td><td><div style="margin:0 0 0 1.5em;" class="dropdown">
+    <select name="one" class="dropdown-select">
+      <option value="">Select…</option><option value="1">Today</option><option value="2">Last 7 days</option><option value="3">Last Month</option></select>
+  </div></td></tr></tbody></table>
+ <table><tbody><tr><td><p style="color:#eee; text-align:center;"><u>Visitor Loyalty</u></p></td><td><p style="color:#eee; text-align:center;"><u>Reffering Search Terms</u></p></td></tr>
+ <tr><td><div class="chart-line-element">
+ <div id="Graph2"></div></div></td>
+ <td><div class="chart-line-element">
+ <div id="Graph3"></div></div></td></tr>
+ <tr><td><p style="color:#eee; text-align:center;"><u>Dom Clicks: /?page_id=4</u></p></td><td><p style="color:#eee; text-align:center;"><u>Page Detail</u></p></td></tr>
+ <tr><td><div class="chart-line-element">
+ <div id="Graph4"></div></div></td>
+ <td><div class="chart-line-element">
+ <div id="Graph5"></div></div></td></tr></tbody></table>
+</div></div>
+</span></span></div></div></div><div class="picboxpage-shadow-old"></div></div></div></div>
+
+<div id="tab4" class="tab__content">
+<div class="picboxnoteslv" style="padding: 2px 2px; margin-top:35px;"><div class="picboxsilver-old" style="padding: 2px;" ><div class="picboxsilver-gradient-old" style="padding: 2px;" ><div class="borderbox40" style="padding: 2px 2px;"><div style="margin-left:5px;"><span style="font-family: Arial; font-size: 110%;"><span style="font-family: Arial; font-size: 100%;">
+<div class='element-header social'>3rd Party Analytics Monitoring</div>
+<div class='coverlay' style="box-shadow:0px 2px 10px 0px #000;padding:1em; margin:1em;">
+<form name="data_entry" action="#">
+<table>
+<thead><tr><th>Company Name: <input type="text" size="30" name="company_name"></th><th>Site URL: <input type="text" size="30" name="site_url"></th><th>Keywords: <input type="text" size="30" name="keyword_search"></th><th>Email Address: <input type="text" size="30" name="email"></th></tr></thead>
+<tbody><tr><td>Select Business Type:</td></tr>
+<tr><td><input type="checkbox" name="business_category" value="1"> Manufacturer</td><td><input type="checkbox" name="business_category" value="5"> Blog Article</td></tr>
+<tr><td><input type="checkbox" name="business_category" value="2"> Whole Sale Supplier</td><td><input type="checkbox" name="business_category" value="6"> Chatboard Forum</td></tr>
+<tr><td><input type="checkbox" name="business_category" value="3"> Retailer</td><td><input type="checkbox" name="business_category" value="7"> Database Company</td></tr>
+<tr><td><input type="checkbox" name="business_category" value="4"> Ad Link Provider</td><td><input type="checkbox" name="business_category" value="8"> Search Engine Host</td></tr>
+<tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+<tr><td><input type="checkbox" name="privacy">Keep Information Private</td><td><input type="checkbox" name="privacy">Monitor Traffic</td><td><input type="button" name="reset_form" value="Reset Form" onclick="this.form.reset();"></td>
+<td><input type="button" name="clear" value="Submit Form" onclick="confirm('Form Submitted');"></td></tr></tbody></table></form></div>
+</span></span></div></div></div><div class="picboxpage-shadow-old"></div></div></div></div>
+
+<div id="tab5" class="tab__content">
+<div class="picboxnoteslv" style="padding: 2px 2px; margin-top:35px;"><div class="picboxsilver-old" style="padding: 2px;" ><div class="picboxsilver-gradient-old" style="padding: 2px;" ><div class="borderbox40" style="padding: 2px 2px;"><div style="margin-left:5px;"><span style="font-family: Arial; font-size: 110%;"><span style="font-family: Arial; font-size: 100%;">
+<div class='element-header social'>Content Delivery Network Search Index</div>
+<div class='coverlay' style="box-shadow:0px 2px 10px 0px #000;padding:1em; margin:1em;">
+<p class="title">CDN File Search:<button style="margin:2em;" type="button" id="submitButton" value="Reset Form" onClick="this.form.reset()" text="submit" value="Reset form" style="cursor:pointer;">Search</button></p><input type="text" id="searchBox" class="search-field" autoFocus /><ul id="searchResults" class="term-list hidden"></ul>
+<p class="title">Replace:<button style="margin:2em;" type="button" id="submitButton" value="Reset Form" onClick="this.form.reset()" text="submit" value="Reset form" style="cursor:pointer;">Replace</button></p><input type="text" id="searchBox" class="search-field" autoFocus /><ul id="searchResults" class="term-list hidden"></ul>
+<div style="height:100px;"></div></div>
+</span></span></div></div></div><div class="picboxpage-shadow-old"></div></div></div></div>
+
+<div id="tab6" class="tab__content">
+<div class="picboxnoteslv" style="padding: 2px 2px; margin-top:35px;"><div class="picboxsilver-old" style="padding: 2px;" ><div class="picboxsilver-gradient-old" style="padding: 2px;" ><div class="borderbox40" style="padding: 2px 2px;"><div style="margin-left:5px;"><span style="font-family: Arial; font-size: 110%;"><span style="font-family: Arial; font-size: 100%;">
+<div class='element-header social'>Company Workflow</div>
+  <div class='row todo'>
+    <div class='social-element'>
+      <div class='chatbox-container'><div class='anna-image'></div><div class='chatbox-left'><span class='username'>Stephen:</span>Hi <span class='highlight'>@Tom</span>, please make sure to have a look at <a href='#' class='main-color'>#413-8148622</a>, needs dispatch ASAP.</div></div>
+      <div class='chatbox-container'><div class='anna-image'></div><div class='chatbox-left'><span class='username'>Stephen:</span>Aw sorry, forgot to attach the updated invoice.</div></div>
+      <div class='chatbox-container'><div class='jimmy-image'></div><div class='chatbox-left'><span class='username'>Tom:</span>Hey <span class='highlight'>@Stephen</span>, don't you worry - I'm here to save the day. Order is already dispached!</div></div>
+      <div style="height:50px;"></div>
+      <div class='chat-input'>
+        <textarea rows='1' placeholder='Add a comment to this workflow...'></textarea>
+        <div class='submit-icon' onclick="confirm('Comment Added');"><i class="fa fa-paper-plane-o"></i></div>
+      </div></div>
+    <div class='todo-element'><div class='table-header todo'>
+        <div class='country-select'>Files</div><div class='country-select'>Todos</div></div>
+      <div class='file-container small'><ul>
+          <li style="cursor:pointer;" onclick="confirm('Open File?');"><span><i class="fa fa-file-pdf-o"></i> invoice#413-814updated.pdf</span></li>
+          <li style="cursor:pointer;" onclick="confirm('Open File?');"><i class="fa fa-file-excel-o"></i> revenue-summary.xls</li>
+          <li style="cursor:pointer;" onclick="confirm('Open File?');"><i class="fa fa-file-pdf-o"></i> region30_map.pdf</li>
+        </ul>
+        <div class='draghere' onclick="confirm('Files Uploaded');"><i class="fa fa-lg fa-cloud-upload"></i>Drag new files here</div>
+      </div></div></div>
+</span></span></div></div></div><div class="picboxpage-shadow-old"></div></div></div></div>
+</div></div>
+<div class="hill-overlay">
+<div class="hill-window">
+<button class="close-button"><span>X</span></button>
+<div class="picboxsilver-old" style="padding: 2px;" ><div class="picboxsilver-gradient-old" style="padding: 2px;" ><div class="borderbox40" style="padding: 2px 2px;"><div style="margin-left:5px;"><span style="font-family: Arial; font-size: 110%;"><span style="font-family: Arial; font-size: 100%;">
+<div class='coverlay' style="box-shadow:0px 2px 10px 0px #000;padding:1em; margin:1em;">
+<p>test1</p>
+</div>
+</span></span></div></div></div><div class="picboxpage-shadow-old"></div></div>
+</div></div>
+ <div class="hill-overlay2">
+<div class="hill-window2">
+<button class="close-button2"><span>X</span></button>
+<div class="picboxsilver-old" style="padding: 2px;" ><div class="picboxsilver-gradient-old" style="padding: 2px;" ><div class="borderbox40" style="padding: 2px 2px;"><div style="margin-left:5px;"><span style="font-family: Arial; font-size: 110%;"><span style="font-family: Arial; font-size: 100%;">
+<div class='coverlay' style="box-shadow:0px 2px 10px 0px #000;padding:1em; margin:1em;">
+<p>test2</p>
+</div>
+</span></span></div></div></div><div class="picboxpage-shadow-old"></div></div>
+</div></div>
+<div class="hill-overlay3">
+<div class="hill-window3">
+<button class="close-button3"><span>X</span></button>
+<div class="picboxsilver-old" style="padding: 2px;" ><div class="picboxsilver-gradient-old" style="padding: 2px;" ><div class="borderbox40" style="padding: 2px 2px;"><div style="margin-left:5px;"><span style="font-family: Arial; font-size: 110%;"><span style="font-family: Arial; font-size: 100%;">
+<div class='coverlay' style="box-shadow:0px 2px 10px 0px #000;padding:1em; margin:1em;">
+<p>test3</p>
+</div>
+</span></span></div></div></div><div class="picboxpage-shadow-old"></div></div>
+</div></div>
+<div class="hill-overlay4">
+<div class="hill-window4">
+<button class="close-button4"><span>X</span></button>
+<div class="picboxsilver-old" style="padding: 2px;" ><div class="picboxsilver-gradient-old" style="padding: 2px;" ><div class="borderbox40" style="padding: 2px 2px;"><div style="margin-left:5px;"><span style="font-family: Arial; font-size: 110%;"><span style="font-family: Arial; font-size: 100%;">
+<div class='coverlay' style="box-shadow:0px 2px 10px 0px #000;padding:1em; margin:1em;">
+<p>test4</p>
+</div>
+</span></span></div></div></div><div class="picboxpage-shadow-old"></div></div>
+</div></div>
+<div class="hill-overlay5">
+<div class="hill-window5">
+<button class="close-button5"><span>X</span></button>
+<div class="picboxsilver-old" style="padding: 2px;" ><div class="picboxsilver-gradient-old" style="padding: 2px;" ><div class="borderbox40" style="padding: 2px 2px;"><div style="margin-left:5px;"><span style="font-family: Arial; font-size: 110%;"><span style="font-family: Arial; font-size: 100%;">
+<div class='coverlay' style="box-shadow:0px 2px 10px 0px #000;padding:1em; margin:1em;">
+<p>test5</p>
+</div>
+</span></span></div></div></div><div class="picboxpage-shadow-old"></div></div>
+</div></div>
+<div class="hill-overlay6">
+<div class="hill-window6">
+<button class="close-button6"><span>X</span></button>
+<div class="picboxsilver-old" style="padding: 2em;" ><div class="picboxsilver-gradient-old" style="padding: 2px;" ><div class="borderbox40" style="padding: 2px 2px;"><div style="margin-left:5px;"><span style="font-family: Arial; font-size: 110%;"><span style="font-family: Arial; font-size: 100%;">
+<div class='coverlay' style="box-shadow:0px 2px 10px 0px #000;padding:1em; margin:1em;">
+<form name="data_entry" action="#">
+<table>
+<thead><tr><th>Settings 1: <input type="text" size="30" name="company_name"></th><th>Settings 2: <input type="text" size="30" name="site_url"></th></tr></thead>
+<tbody>
+<tr><td><input type="checkbox" name="business_category" value="1"> Option 1</td><td><div style="margin:0 0 0 1.5em;" class="dropdown"><select name="one" class="dropdown-select">
+      <option value="">Select…</option><option value="1">Option 1</option><option value="2">Option 2</option><option value="3">Option 3</option></select>
+</div></td>
+<td><input type="checkbox" name="business_category" value="5"> Option 5</td><td><div style="margin:0 0 0 1.5em;" class="dropdown"><select name="one" class="dropdown-select">
+      <option value="">Select…</option><option value="1">Option 1</option><option value="2">Option 2</option><option value="3">Option 3</option></select>
+</div></td></tr>
+<tr><td><input type="checkbox" name="business_category" value="2"> Option 2</td><td><div style="margin:0 0 0 1.5em;" class="dropdown"><select name="one" class="dropdown-select">
+      <option value="">Select…</option><option value="1">Option 1</option><option value="2">Option 2</option><option value="3">Option 3</option></select>
+</div></td>
+<td><input type="checkbox" name="business_category" value="6"> Option 6</td><td><div style="margin:0 0 0 1.5em;" class="dropdown"><select name="one" class="dropdown-select">
+      <option value="">Select…</option><option value="1">Option 1</option><option value="2">Option 2</option><option value="3">Option 3</option></select>
+</div></td></tr>
+<tr><td><input type="checkbox" name="business_category" value="3"> Option 3</td><td><div style="margin:0 0 0 1.5em;" class="dropdown"><select name="one" class="dropdown-select">
+      <option value="">Select…</option><option value="1">Option 1</option><option value="2">Option 2</option><option value="3">Option 3</option></select>
+</div></td>
+<td><input type="checkbox" name="business_category" value="7"> Option 7</td><td><div style="margin:0 0 0 1.5em;" class="dropdown"><select name="one" class="dropdown-select">
+      <option value="">Select…</option><option value="1">Option 1</option><option value="2">Option 2</option><option value="3">Option 3</option></select>
+</div></td></tr>
+<tr><td><input type="checkbox" name="business_category" value="4"> Option 4</td><td><div style="margin:0 0 0 1.5em;" class="dropdown"><select name="one" class="dropdown-select">
+      <option value="">Select…</option><option value="1">Option 1</option><option value="2">Option 2</option><option value="3">Option 3</option></select>
+</div></td>
+<td><input type="checkbox" name="business_category" value="8"> Option 8</td><td><div style="margin:0 0 0 1.5em;" class="dropdown"><select name="one" class="dropdown-select">
+      <option value="">Select…</option><option value="1">Option 1</option><option value="2">Option 2</option><option value="3">Option 3</option></select>
+</div></td></tr>
+<tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+<td><input type="button" name="clear" value="Save Changes" onclick="confirm('Changes Saved');"></td>
+<td><input type="button" name="reset_form" value="Reset Defaults" onclick="this.form.reset('Setteings Reset');"></td></tr></tbody></table></form>
+</div>
+</span></span></div></div></div><div class="picboxpage-shadow-old"></div></div>
+</div></div>
+</body>
+</html>
+
+
+<style type="text/css">
+/*BODY*/
+body {
+	background: -moz-linear-gradient(left, #dbd5bf 0%, #CCCCCC 50%, #CCCCCC 50%, #dbd5bf 100%);background: -webkit-gradient(linear, left top, right top, color-stop(0%,#dbd5bf),color-stop(50%,#CCCCCC), color-stop(50%,#CCCCCC), color-stop(100%,#dbd5bf));background: -ms-linear-gradient(left, #dbd5bf 0%, #CCCCCC 50%, #CCCCCC 50%, #dbd5bf 100%);background: -o-linear-gradient(left, #dbd5bf 0%, #CCCCCC 50%, #CCCCCC 50%, #dbd5bf 100%);
+}
+.picboxnoteslv{
+	position:relative;border: 1px solid #baaa61;padding: 8px 12px;margin: 2em 0 1em; margin-left:20em;background-color: #cccccc;box-shadow: 0 1px 1px rgba(0,0,0,0.15), 0 10px 0 -5px #cccccc, 0 10px 1px -4px rgba(0,0,0,0.15), 0 20px 0 -10px #cccccc, 0 20px 1px -9px rgba(0,0,0,0.15), -10px 0 20px rgba(0, 0, 0, 0.4);
+}
+.picboxnoteslv:before {
+	content:"";position:absolute;top:0;right:0;border-width:0 16px 16px 0;border-style: solid;border-color:#a5a5a5 #a5a5a5 #cccccc #cccccc;background:#cccccc;-webkit-box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);-moz-box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);display:block;width:0;
+}
+.picboxpage-shadow-old {
+	border-radius:290px / 8px;-moz-border-radius:290px / 8px;-webkit-border-radius:290px / 8px;box-shadow:0 10px 20px #000;-moz-box-shadow:0 10px 20px #000;
+}
+.picboxsilver-old {
+margin: 10px 0 3px;line-height:normal
+}
+.picboxsilver-gradient-old {
+border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px;background: -moz-linear-gradient(left, #CCCCCC 0%, #EEEEEE 50%, #EEEEEE 50%, #CCCCCC 100%);background: -webkit-gradient(linear, left top, right top, color-stop(0%,#CCCCCC),color-stop(50%,#EEEEEE), color-stop(50%,#EEEEEE), color-stop(100%,#CCCCCC));background: -ms-linear-gradient(left, #CCCCCC 0%, #EEEEEE 50%, #EEEEEE 50%, #CCCCCC 100%);background: -o-linear-gradient(left, #CCCCCC 0%, #EEEEEE 50%, #EEEEEE 50%, #CCCCCC 100%);
+}
+.borderbox40 {
+	padding: 0px 15px;margin: 0;border: 1px solid;border-radius: 13px 13px 13px 13px;-moz-border-radius: 13px 13px 13px 13px;-webkit-border-radius: 13px 13px 13px 13px;border: 4px double #baaa61;
+}
+.coverlay {
+	background: rgba(41, 41, 46, 0.3);padding:1.5em;
+}
+/*HEADER*/
+.v-tab .tab__head {
+	margin: 0;padding: 0;float: left;list-style: none;height: 32px;width: 100%;margin-left:21.5em;z-index : 1;
+}
+.v-tab .tab__head li::before {
+	z-index : -1;
+}
+.v-tab .tab__head li {
+	float:left;text-align: center;cursor: pointer;padding: 0px;height: 30px;color: #fff;background-color: #a5a5a5; width: 125px;border: 2px solid #333333;border-bottom:none;-webkit-box-shadow: 12px 0px 15px -5px rgba(0,0,0,0.4);-moz-box-shadow: 12px 0px 15px -5px rgba(0,0,0,0.4);box-shadow: 12px 0px 15px -5px rgba(0,0,0,0.4);border-radius: 15px 25px 0 0;-webkit-border-radius: 15px 15px 0 0;-moz-border-radius: 15px 15px 0 0;-khtml-border-radius: 15px 15px 0 0;transform: perspective(4px) rotateX(1deg);-webkit-transform: perspective(4px) rotateX(1deg);-wmoz-transform: perspective(4px) rotateX(1deg);-khtml-transform: perspective(4px) rotateX(1deg);z-index : 1;margin: 0 -7px;position : relative;display : inline-block;
+}
+.v-tab .tab__head li:hover {
+	background-color: #999999;color: #fff;z-index : 2; box-shadow : 0 2px hsla(0, 0%, 100%, 0.5) inset;-webkit-box-shadow : 0 2px hsla(0, 0%, 100%, 0.5) inset;
+}
+.v-tab .tab__head li.active {
+	background-color: #99FF99;color: #000;z-index : 2;
+}
+.v-tab .tab__container {
+	float: left;width: 100%;min-height: 200px;margin-top:-39.5px;display : block;
+}
+.v-tab .tab__content {
+	padding: 5px;display: none;
+}
+.v-tab .tab__content > :first-child {
+	margin-top: 0;
+}
+/*SIDEBAR*/
+.navigation-elm {
+  padding-left: 20px;box-sizing: border-box;color: #ccc;display: flex;align-items: center;height: 60px;width: 100%;cursor: pointer;font-weight: 200;letter-spacing: 0.05rem;transition: background .1s ease-out;
+}
+.sub-navigation-elm {
+  padding-left: 80px;box-sizing: border-box;background: rgba(100, 100, 130, 0.1);color: #ccc;display: flex;align-items: center;height: 50px;width: 100%;cursor: pointer;font-weight: 200;letter-spacing: 0.05rem;font-size: .9rem;transition: background .1s ease-out;
+}
+.sub-navigation-elm:hover {
+  background: rgba(100, 100, 130, 0.3);
+}
+.navigation-elm:nth-child(1) {
+  background: rgba(100, 100, 130, 0.2);
+}
+.navigation-elm:hover {
+  background: rgba(100, 100, 130, 0.2);transition: all .1s ease-out;
+}
+.navigation-elm:hover .nav-text {
+  transform: scale(1.1);transition: transform .1s ease-out;
+}
+.nav-text {
+  transition: transform .1s ease-out;
+}
+.fa-fw {
+  margin-right: 15px;
+}
+.sidebar {
+  padding-top: 2%;height: 100%;left: 0;width: 300px;display: flex;color: #fff;flex-flow: column;position: fixed;background: -webkit-gradient(linear, left top, right top, color-stop(0%,#222227),color-stop(50%,#555555), color-stop(50%,#555555), color-stop(100%,#222227));background: -ms-linear-gradient(left, #222227 0%, #555555 50%, #555555 50%, #222227 100%);background: -o-linear-gradient(left, #222227 0%, #555555 50%, #555555 50%, #222227 100%);border: 2px double #CCC;z-index: 1;box-shadow:1px 15px 30px 3px #000;
+}
+/*SIDEBAR TRANSITION*/
+.close-button{
+  position: fixed;top: 0;right: 0; margin:1em; height:35px;width:35px; box-sizing: border-box;cursor:pointer; font-size: 25px;font-weight: 200px;color: #FFF;background: -webkit-gradient(linear, left top, right top, color-stop(0%,#222227),color-stop(50%,#555555), color-stop(50%,#555555), color-stop(100%,#222227));background: -ms-linear-gradient(left, #222227 0%, #555555 50%, #555555 50%, #222227 100%);background: -o-linear-gradient(left, #222227 0%, #555555 50%, #555555 50%, #222227 100%);border: 2px double #CCC;z-index: 1;box-shadow:1px 5px 15px 1px #000;
+}
+.close-button:active{
+  transform: translate(0px,5px);-webkit-transform: translate(0px,5px);-moz-transform: translate(0px,5px);-ms-transform: translate(0px,5px);-o-transform: translate(0px,5px);border-bottom: 1px solid;
+}
+.close-button2{
+  position: fixed;top: 0;right: 0; margin:1em; height:35px;width:35px; box-sizing: border-box;cursor:pointer; font-size: 25px;font-weight: 200px;color: #FFF;background: -webkit-gradient(linear, left top, right top, color-stop(0%,#222227),color-stop(50%,#555555), color-stop(50%,#555555), color-stop(100%,#222227));background: -ms-linear-gradient(left, #222227 0%, #555555 50%, #555555 50%, #222227 100%);background: -o-linear-gradient(left, #222227 0%, #555555 50%, #555555 50%, #222227 100%);border: 2px double #CCC;z-index: 1;box-shadow:1px 5px 15px 1px #000;
+}
+.close-button2:active{
+  transform: translate(0px,5px);-webkit-transform: translate(0px,5px);-moz-transform: translate(0px,5px);-ms-transform: translate(0px,5px);-o-transform: translate(0px,5px);border-bottom: 1px solid;
+}
+.close-button3{
+  position: fixed;top: 0;right: 0; margin:1em; height:35px;width:35px; box-sizing: border-box;cursor:pointer; font-size: 25px;font-weight: 200px;color: #FFF;background: -webkit-gradient(linear, left top, right top, color-stop(0%,#222227),color-stop(50%,#555555), color-stop(50%,#555555), color-stop(100%,#222227));background: -ms-linear-gradient(left, #222227 0%, #555555 50%, #555555 50%, #222227 100%);background: -o-linear-gradient(left, #222227 0%, #555555 50%, #555555 50%, #222227 100%);border: 2px double #CCC;z-index: 1;box-shadow:1px 5px 15px 1px #000;
+}
+.close-button3:active{
+  transform: translate(0px,5px);-webkit-transform: translate(0px,5px);-moz-transform: translate(0px,5px);-ms-transform: translate(0px,5px);-o-transform: translate(0px,5px);border-bottom: 1px solid;
+}
+.close-button4{
+  position: fixed;top: 0;right: 0; margin:1em; height:35px;width:35px; box-sizing: border-box;cursor:pointer; font-size: 25px;font-weight: 200px;color: #FFF;background: -webkit-gradient(linear, left top, right top, color-stop(0%,#222227),color-stop(50%,#555555), color-stop(50%,#555555), color-stop(100%,#222227));background: -ms-linear-gradient(left, #222227 0%, #555555 50%, #555555 50%, #222227 100%);background: -o-linear-gradient(left, #222227 0%, #555555 50%, #555555 50%, #222227 100%);border: 2px double #CCC;z-index: 1;box-shadow:1px 5px 15px 1px #000;
+}
+.close-button4:active{
+  transform: translate(0px,5px);-webkit-transform: translate(0px,5px);-moz-transform: translate(0px,5px);-ms-transform: translate(0px,5px);-o-transform: translate(0px,5px);border-bottom: 1px solid;
+}
+.close-button5{
+  position: fixed;top: 0;right: 0; margin:1em; height:35px;width:35px; box-sizing: border-box;cursor:pointer; font-size: 25px;font-weight: 200px;color: #FFF;background: -webkit-gradient(linear, left top, right top, color-stop(0%,#222227),color-stop(50%,#555555), color-stop(50%,#555555), color-stop(100%,#222227));background: -ms-linear-gradient(left, #222227 0%, #555555 50%, #555555 50%, #222227 100%);background: -o-linear-gradient(left, #222227 0%, #555555 50%, #555555 50%, #222227 100%);border: 2px double #CCC;z-index: 1;box-shadow:1px 5px 15px 1px #000;
+}
+.close-button5:active{
+  transform: translate(0px,5px);-webkit-transform: translate(0px,5px);-moz-transform: translate(0px,5px);-ms-transform: translate(0px,5px);-o-transform: translate(0px,5px);border-bottom: 1px solid;
+}
+.close-button6{
+  position: fixed;top: 0;right: 0; margin:1em; height:35px;width:35px; box-sizing: border-box;cursor:pointer; font-size: 25px;font-weight: 200px;color: #FFF;background: -webkit-gradient(linear, left top, right top, color-stop(0%,#222227),color-stop(50%,#555555), color-stop(50%,#555555), color-stop(100%,#222227));background: -ms-linear-gradient(left, #222227 0%, #555555 50%, #555555 50%, #222227 100%);background: -o-linear-gradient(left, #222227 0%, #555555 50%, #555555 50%, #222227 100%);border: 2px double #CCC;z-index: 1;box-shadow:1px 5px 15px 1px #000;
+}
+.close-button6:active{
+  transform: translate(0px,5px);-webkit-transform: translate(0px,5px);-moz-transform: translate(0px,5px);-ms-transform: translate(0px,5px);-o-transform: translate(0px,5px);border-bottom: 1px solid;
+}
+#hill-link {
+  position:relative;
+}
+.hill-overlay {
+  position: fixed;left: 0;top: 0;bottom: 0;right: 0;background: rgba(0, 0, 0, 0.5);width: 84%;margin-left:19em;display: none;z-index: 1000;overflow: scroll;
+}
+.hill-window {
+  position: absolute;max-width: 600px;width: 100%;height:65%;padding: 20px;background: transparent;border:none;top: 0;display: none;z-index: 2000;
+}
+#hill-link2 {
+  position:relative;
+}
+.hill-overlay2 {
+  position: fixed;left: 0;top: 0;bottom: 0;right: 0;background: rgba(0, 0, 0, 0.5);width: 84%;margin-left:19em;display: none;z-index: 1000;overflow: scroll;
+}
+.hill-window2 {
+  position: absolute;max-width: 600px;width: 100%;height:65%;padding: 20px;background: transparent;border:none;top: 0;display: none;z-index: 2000;
+}
+#hill-link3 {
+  position:relative;
+}
+.hill-overlay3 {
+  position: fixed;left: 0;top: 0;bottom: 0;right: 0;background: rgba(0, 0, 0, 0.5);width: 84%;margin-left:19em;display: none;z-index: 1000;overflow: scroll;
+}
+.hill-window3 {
+  position: absolute;max-width: 600px;width: 100%;height:65%;padding: 20px;background: transparent;border:none;top: 0;display: none;z-index: 2000;
+}
+#hill-link4 {
+  position:relative;
+}
+.hill-overlay4 {
+  position: fixed;left: 0;top: 0;bottom: 0;right: 0;background: rgba(0, 0, 0, 0.5);width: 84%;margin-left:19em;display: none;z-index: 1000;overflow: scroll;
+}
+.hill-window4 {
+  position: absolute;max-width: 600px;width: 100%;height:65%;padding: 20px;background: transparent;border:none;top: 0;display: none;z-index: 2000;
+}
+#hill-link5 {
+  position:relative;
+}
+.hill-overlay5 {
+  position: fixed;left: 0;top: 0;bottom: 0;right: 0;background: rgba(0, 0, 0, 0.5);width: 84%;margin-left:19em;display: none;z-index: 1000;overflow: scroll;
+}
+.hill-window5 {
+  position: absolute;max-width: 600px;width: 100%;height:65%;padding: 20px;background: transparent;border:none;top: 0;display: none;z-index: 2000;
+}
+#hill-link6 {
+  position:relative;
+}
+.hill-overlay6 {
+  position: fixed;left: 0;top: 0;bottom: 0;right: 0;background: rgba(0, 0, 0, 0.5);width: 84%;margin-left:19em;display: none;z-index: 1000;overflow: scroll;
+}
+.hill-window6 {
+  position: absolute;width: 75%;height:65%; margin-left:-7%;padding: 20px;background: transparent;border:none;top: 0;display: none;z-index: 2000;
+}
+/*CDN SEARCH*/
+.input-helper {
+	position: relative;display: inline-block;margin-bottom: 5px;
+}
+.input-helper:before {
+	content: '';display: block;position: absolute;
+}
+.input-helper--radio {
+	width: 100%;height: 32px;cursor:pointer;
+}
+input[type="radio"] {
+	display: none;
+}
+.search-field, .term-list {
+  -moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;
+}
+.term-list:hover { 
+  cursor: pointer;
+}
+.title {
+  margin: 1em;text-align:center;font-family: "Arvo", "Helvetica Neue", Helvetica, arial, sans-serif;font-size: 125%;font-weight: 100;color: #000;text-shadow: #ccc 1px 1px 0px, #ddd 2px 2px, #ddd 3px 3px 1px;
+}
+#submitButton {
+  margin-top:1em;
+}
+.search-field {
+  display: block;width: 30%;margin: 1em auto 0;padding: 0.5em 10px;border: 1px solid #999;font-size: 125%;font-family: "Arvo", "Helvetica Neue", Helvetica, arial, sans-serif;font-weight: 100;color: #3e8ce0;
+}
+.term-list {
+  list-style: none inside;width: 30%;margin: 0 auto 2em;padding: 5px 10px 0;text-align: left;color: #777;background: #fff;border: 1px solid #ddd;font-family: "Arvo", "Helvetica Neue", Helvetica, arial, sans-serif;font-weight: 400;
+}
+.term-list li {
+  padding: 0.5em 0;border-bottom: 1px solid #eee;
+}
+.term-list li:hover {
+  color:white;opacity:0.7;background:#3e8ce0;
+}
+.term-list strong:hover {
+  color:white;
+}
+.term-list strong {
+  color: #444;font-weight: 700;
+}
+.hidden {
+  display: none;
+}
+/*KEY TABLE & DROPDOWN*/
+.dashwrap{
+	width: 300px;height: 310px;margin: 5px auto;border-radius: 20px;border: solid 8px #2c3033;box-shadow: 0 0 0px 1px rgba(255,255,255,.4),
+						0 0 0px 3px #2c3033;
+}
+.dashheader{
+	width: 100%;height: 40px;border-radius: 10px 10px 0 0px;background-image: linear-gradient(#9b9c9d 0%, #747474 100%);font: bold 18px/50px arial;text-align: center;color: white;box-shadow: inset 0 -2px 3px 2px rgba(0,0,0,.4),
+						0 2px 2px 2px rgba(0,0,0,.4);
+}
+.dashwrap-list{
+	height: 75%;padding: 20px 0px;box-shadow: inset 0 0px 5px black;border-radius: 0 0 10px 10px;background-image: linear-gradient(white 97%, gray 100%);
+}
+.dashlist{
+	list-style: none;color: rgba(0,0,0,.7);float: left;margin-left:-14%;width: 100%;
+}
+.dashlist li:nth-child(odd){
+	background: rgba(0,0,50,.1);
+}
+.dashlist li{
+	float: left;width: 100%;
+}
+.label{
+  padding: 10px;cursor: pointer;width: 100%;
+}
+.dropdown {
+  display: inline-block;position: relative;overflow: hidden;height: 28px;width: 150px;background: #f2f2f2;border: 1px solid;border-color: #6d6d6d;border-radius: 3px;background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.06));-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+}
+.dropdown:before, .dropdown:after {
+  content: '';position: absolute;z-index: 2;top: 9px;right: 10px;width: 0;height: 0;border: 4px dashed;border-color: #888888 transparent;pointer-events: none;
+}
+.dropdown:before {
+  border-bottom-style: solid;border-top: none;
+}
+.dropdown:after {
+  margin-top: 7px;border-top-style: solid;border-bottom: none;
+}
+.dropdown-select {
+  position: relative;width: 130%;margin: 0;padding: 6px 8px 6px 10px;cursor:pointer;height: 28px;line-height: 14px;font-size: 12px;color: #62717a;text-shadow: 0 1px white;background: #f2f2f2; background: rgba(0, 0, 0, 0) !important; border: 0;border-radius: 0;-webkit-appearance: none;
+}
+.dropdown-select:focus {
+  z-index: 3;width: 100%;color: #394349;outline: 2px solid #49aff2;outline: 2px solid -webkit-focus-ring-color;outline-offset: -2px;
+}
+.dropdown-select > option {
+  margin: 3px;padding: 6px 8px;text-shadow: none;background: #f2f2f2;border-radius: 3px;cursor: pointer;
+}
+/*WORKFLOW*/
+.chat-input textarea {
+  font-family: kanit;padding: 10px;color: #68686e;border: 3px solid #333339;border-right: 0px;text-shadow: 0px 0px 0px #eee;-webkit-text-fill-color: transparent;font-size: 1rem;width: 100%;box-sizing: border-box;resize: none;transition: background .2s ease-out;
+}
+textarea::-webkit-input-placeholder {
+  color: #68686e;text-shadow: none;-webkit-text-fill-color: initial;
+}
+.chat-input textarea:focus {
+  outline: none;background: transparent;background: #222229;
+}
+.chat-input textarea:hover {
+  background: #222229;transition: background .2s ease-out;
+}
+.chat-input {
+  width: 100%;box-sizing: border-box;padding-left: 50px;margin-right:25px;align-self: flex-end;display: flex;position: relative;
+}
+.submit-icon {
+  width: 50px;height: 15%;cursor: pointer;flex-grow: 1;background: #333339;display: flex;align-items: center;justify-content: center;min-height: 50px;color: #bbbbbf;box-sizing: border-box;border: 3px solid #333339;
+}
+.submit-icon:hover {
+	background: #6d6d6d;
+}	
+.jimmy-image {
+  border-top-left-radius: 15px;border-bottom-left-radius: 15px;width: 60px;background: url('http://www.mythoughtbomb.com/wp-content/uploads/2016/07/img_placeholder_avatar-small.jpg');background-repeat: no-repeat;background-size: cover;background-position: right;
+}
+.anna-image {
+  border-top-left-radius: 15px;border-bottom-left-radius: 15px;width: 60px;background: url('http://www.mythoughtbomb.com/wp-content/uploads/2016/07/img_placeholder_avatar-small.jpg');background-repeat: no-repeat; background-size: cover;background-position: right;
+}
+.chatbox-container {
+  margin-left: 25px;flex-flow: row;margin-top: 20px;display: flex;
+}
+.chatbox-left {
+  background: #48484e;line-height: 1.2em;max-width: 75%;min-height:77px;border-top-right-radius: 15px;border-bottom-right-radius: 15px;padding: 10px;box-sizing: border-box;font-size: 1rem;padding-right: 20px;color: #fff;font-weight: 200;
+}
+.username {
+  display: block;color: #ccc;
+}
+.username.right {
+  text-align: right;
+}
+.update-number {
+  display: inline-block;background: #386381;height: 1rem;margin-left: 30px;color: #ccc;font-size: .9rem;margin-top: .3rem;padding: 1px;padding-bottom: 8px;text-align: center;font-weight: 500;width: 1.5rem;border-radius: 10px;
+}
+.country-select { 
+  margin-top: 10px;background: #333339;color: #fff;cursor: pointer;display: inline-block;font-weight: 200;letter-spacing: .2rem;margin-right: 10px;font-size: 1.3rem;padding-left: 20px;padding-right: 20px;border-bottom: 3px solid #44444a;position: relative;transition: border-color .2s ease-out;
+}
+.country-select:first-child {
+  border-bottom-color: #5AB3D1;margin-left: 15px;
+}
+.country-select:hover {
+  border-color: #5AB3D1;transition: border-color .2s ease-out;
+}
+.draghere {
+  width: 100%;height: 100%;box-sizing: border-box;display: flex;flex-flow: column;color: #68686e;font-size: 1.2rem;justify-content: center;align-items: center;flex-grow: 1;background: transparent;border: 2px dashed #58585e;
+}
+.draghere:hover {
+	background: rgba(109,109,109,0.5);color: #222229;border-color:#222229;
+}	
+.file-container li:hover {
+  background: #3f3f45;
+}
+.file-container {
+  background: #333339;color: #eee;border: 15px solid #29292e;border-top: 0px;height: 400px;padding: 25px;display: flex;flex-flow: column;box-sizing: border-box;
+}
+/*METRICS*/
+.stats-table td:last-of-type {
+  padding-right: 15px;
+}
+.stats-table td:first-of-type {
+  padding-left: 15px;
+}
+.stats-table td {
+	color:#fff;
+}
+.stats-table {
+  width: 100%;overflow: auto;background: #3a3a3f;box-sizing: border-box;border: 25px solid #3a3a3f;border-right-width: 15px;
+}
+.position-marker {
+  content: '';position: absolute;cursor:pointer;height: 3vw;width: 3vw;border-radius: 50%;background: hsla(200, 30%, 45%, 0.6);top: 20%;left: 10%;z-index: 4;position: relative;transition: all .2s ease-out;
+}
+.position-marker.no2 {
+  top: 5%;width: 2vw;height: 2vw;left: 45%;z-index: 2;
+}
+.position-marker.no3 {
+  top: 5%;width: 2vw;height: 2vw;left: 18%;z-index: 2;
+}
+.position-marker.no4 {
+  top: -5%;width: 3vw;height: 3vw;left: 40%;z-index: 2;
+}
+.position-marker.no5 {
+  top: -5%;width: 4vw;height: 4vw;left: 75%;z-index: 6;
+}
+.position-marker.no6 {
+  top: 0%;width: 1.5vw;height: 1.5vw;left: 30%;z-index: 6;
+}
+.order-scroll {
+  text-align: right;cursor: pointer;width: 100%;padding-right: 5px;padding-bottom: 3px;color: #ccc;border: 15px solid #3a3a3f;border-top: 0px;box-sizing: border-box;transition: background .2s ease-out, color .2s ease-out;
+}
+.order-scroll:hover {
+  color: #fff;background: rgba(0, 0, 0, 0.1);transition: background .2s ease-out, color .2s ease-out;
+}
+.order-container {
+  height: 600px;overflow: hidden;
+}
+.position-marker:hover {
+  background: hsla(200, 20%, 55%, 0.6);transform: scale(1.1);transition: all .2s ease-out;
+}
+.position-marker:after {
+  content: '';background: hsla(200, 30%, 45%, 0.8);height: 33.33%;width: 33.33%;position: absolute;top: 0;left: 0;margin: auto;bottom: 0;right: 0;border-radius: 50%;z-index: 2;
+}
+.map-container {
+  height: 22vw;background-image: url('https://upload.wikimedia.org/wikipedia/commons/a/a0/World_map_with_points.svg');background-size: contain;background-repeat: no-repeat;background-position: top;
+}
+.stats-element {
+  background: rgba(41, 41, 46, 0.4);border-right-width: 0px;box-sizing: border-box;position: relative;width: 66.666%;
+}
+.order-element {
+  color: #999;width: 33.333%;display: flex;flex-flow: column;box-sizing: border-box;background: #3a3a3f;
+}
+.order-element h4 {
+  padding-left: 20px;
+}
+h4 {
+  color: #fff;font-weight: 200;line-height: .9em;margin: 0;margin-top: .2em;font-size: 1.2rem;
+}
+.order-element br {
+  line-height: 1em;
+}
+.highlight {
+  color: #FFBB75;
+}
+.order-element p {
+  padding-left: 20px;margin-bottom: 10px;font-size: 1rem;line-height: 1.2em;
+}
+.order-element p:last-child {
+  margin-bottom: 5px;
+}
+.order-item {
+  background: #48484e;width: 100%;padding: 10px 0 10px 0;color: #eee;border: 15px solid #3a3a3f;border-top: 0px;box-sizing: border-box;position: relative;
+}
+.order-item:after {
+  content: '';background: #5AB3D1;height: 100%;width: 5px;position: absolute;left: 0;top: 0;z-index: 5;
+}
+.order-scroll.up {
+  border-bottom: 0px;
+}
+.order-item.highlight:after {
+  content: '';background: #FFBB75;height: 100%;width: 5px;position: absolute;left: 0;top: 0;z-index: 5;
+}
+.order-item.hold:after {
+  content: '';background: #999;height: 100%;width: 5px;position: absolute;left: 0;top: 0;z-index: 5;
+}
+.worldmap {
+  width: 100%;position: absolute;z-index: 0;
+}
+.spacing-adjuster {
+  width: 100%;flex-grow: 1;height: 100%;
+}
+.performance-table {
+  table-layout: fixed;width: auto;min-width: 100%;border-collapse: collapse;box-sizing: border-box;font-size: 1.2rem;font-weight: 200;
+}
+.align-right {
+  text-align: right;float: right;
+}
+.performance-table tr:nth-child(odd) {
+  background: #515158;
+}
+.performance-table tr:nth-child(even) {
+  background: #48484e;
+}
+.performance-table tr:nth-child(1) {
+  background: #333339;font-size: 1rem;
+}
+.table-header {
+  background: #3a3a3f;
+}
+.element-header {
+  color: #222227;height: 40px;display: flex;align-items: center;padding-left: 15px;box-sizing: border-box;margin-bottom: 15px;width: 100%;
+}
+.performance-table td {
+  padding: 20px 5px 20px 5px;line-height: 1em;text-align: right;
+}
+.row.todo {
+  background: rgba(41, 41, 46, 0.3);
+}
+.table-header.todo {
+  background: #29292e;
+}
+.element-header.social {
+  margin-bottom: 0px;
+}
+.key-metrics {
+  min-height: 80px;border-top: 4px solid black;min-width: 100px;padding: 0 10px 0 10px;color: white;flex-flow: column;line-height: 1em;text-align: center;background: #3f3f45;margin: 60px 60px 20px 60px;display: flex;justify-content: center;align-items: center;font-size: 1.5rem;
+}
+/*PIE CHART*/
+.piechart-element {
+  width: 33.3333%;box-sizing: border-box;display: flex;padding-right: 20px;min-height: 100px;max-height: 200px;justify-content: center;align-items: center;position: relative;
+}
+.piechart-container {
+  width: 30%;display: flex;position: relative;
+}
+.piechart-percent {
+  position: absolute;width: 30%;top: 0;font-size: 1.8vw;display: flex;justify-content: center;align-items: center;height: 100%;margin-left:1.75em;
+}
+.inactive {
+  color: #aaa;
+}
+.piechart-element:nth-child(odd) {
+  background: #3a3a3f;
+}
+.piechart-element:nth-child(even) {
+  background: #3f3f45;
+}
+#container {
+  padding: 10px 50px;text-align: center;
+}
+.chartrotate {position: relative;display: inline-block;margin: 20px 10px;color: #999;font-size: 14px;text-align: center;
+}
+.chartrotate canvas {
+  position: absolute;top: 0;left: 0;
+}
+.piechart-label {
+  width: 70%;height: 100%;line-height: 1em;min-height: 100px;color: #eee;display: flex;justify-content: center;align-items: center;flex-flow: column;padding: 0 5% 0 5%;
+}
+@keyframes bake-pie {
+  from {
+    transform: rotate(0deg) translate3d(0,0,0);
+  }
+}
+main {
+  width: 425px;background: #3a3a3f;color:#eee;padding: 1em;box-shadow:0px 2px 15px 0px #000;float:left;
+}
+section {
+  margin-top: 30px;
+}
+.pieID {
+  display: inline-block;vertical-align: top;
+}
+.pie {
+  height: 200px; width: 200px;position: relative; margin: 0 30px 30px 0;
+}
+.pie::before {
+  content: "";display: block;position: absolute;z-index: 1;width: 100px;height: 100px;background: transparent;border-radius: 50%;top: 50px;left: 50px;
+}
+.pie::after {
+  content: "";display: block;width: 120px;height: 2px;background: rgba(0,0,0,0.1);border-radius: 50%;box-shadow: 0 0 3px 4px rgba(0,0,0,0.1);margin: 220px auto;
+}
+.slice {
+  position: absolute;width: 200px;height: 200px;clip: rect(0px, 200px, 200px, 100px);animation: bake-pie 1s;
+}
+.slice span {
+  display: block;position: absolute;top: 0;left: 0;background-color: black;width: 200px;height: 200px;border-radius: 50%;clip: rect(0px, 200px, 200px, 100px);
+}
+.legend {
+  list-style-type: none;padding: 0;margin: 0;background: #515158;padding: 15px;font-size: 13px;box-shadow:0px 0px 5px 0px #000;
+}
+.legend li {
+  width: 110px;height: 1.25em;margin-bottom: 0.7em;padding-left: 0.5em;border-left: 1.25em solid black;
+}
+.legend em {
+  font-style: normal;
+}
+.legend span {
+  float: right;
+}
+/*HORZ BAR GRAPH*/
+.horizontal-bar-element {
+  width: 100%;box-sizing: border-box;display: flex;padding-right: 20px;min-height: 100px;max-height: 200px;position: relative;background: #3a3a3f;color:#eee;box-shadow:0px 2px 10px 0px #000;
+}
+.horizontal-bar-graph {
+  display: table;width: 50%;
+}
+.horizontal-bar-graph-segment {
+  display: table-row;
+}
+.horizontal-bar-graph-label {
+  display: table-cell;border-right: 1px solid silver; text-align: right;padding: 4px 10px 4px 1em;vertical-align: baseline;white-space: nowrap;
+}
+.horizontal-bar-graph-value {
+  display: table-cell;padding: 3px 0;vertical-align: baseline;width: 100%;
+}
+.horizontal-bar-graph-value-bar {
+  background: silver;@include box-sizing(padding-box);padding: 4px 4px 3px;height: 1em;text-align: right;color: white;overflow: visible;display: inline-block;white-space: nowrap;-webkit-font-smoothing: antialiased;
+}
+.horizontal-bar-graph-segment:first-child {
+  .horizontal-bar-graph-label { padding-top: 12px; }
+  .horizontal-bar-graph-value { padding-top: 11px; }
+}
+.horizontal-bar-graph-segment:last-child {
+  .horizontal-bar-graph-label { padding-bottom: 12px; }
+  .horizontal-bar-graph-value { padding-bottom: 11px; }
+}
+/*LINE-CHART*/
+.chart-line-element {
+   width: 620px;height: 280px;padding: 1em;margin: 1em;display: flex; position: relative;background: #3a3a3f;color:#eee; float:left;box-shadow:0px 2px 15px 0px #000;
+}
+#Graph {
+  font-size: 0.75em;height:0.125%;
+}
+#Graph2 {
+  font-size: 0.75em;height:0.125%;
+}
+#Graph3 {
+  font-size: 0.75em;height:0.125%;
+}
+#Graph4 {
+  font-size: 0.75em;height:0.125%;
+}
+#Graph5 {
+  font-size: 0.75em;height:0.125%;
+}
+  path, line {
+    fill: none;
+  }
+  .marker {
+    fill: #1abc9c;
+}
+  .tick line {
+    fill: none;stroke: #ccc;stroke-width: 1;shape-rendering: crispEdges;
+}
+#visualisation-line {
+  fill: none;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3;stroke: #1abc9c;
+}
+/*OTHER*/
+.container {
+  height: 100%;margin: 0;font-family: kanit;font-size: 16px;letter-spacing: 0.05rem;
+}
+.container {
+  overflow-X: hidden;float: left;background: #333339;padding-left: 300px;box-sizing: border-box;width: 100%;z-index: 0;position: relative;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px;background: #555;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;background: #222227;max-height: 20p;
+}
+.social-element {
+  width: 66.6666%;flex-flow: column;display: flex;
+}
+.todo-element {
+  width: 33.3333%;height: 100%;
+}
+.main-color {
+  color: #5AB3D1;
+}
+.small {
+  font-size: .9rem;
+}
+.label-heading {
+  color: #fff;align-self: flex-start;font-size: 1.1rem;
+}
+a,
+a:active,
+a:visited {
+  color: inherit;
+}
+.madeby {
+  color: #999;position: absolute;right: 15px;font-size: 1rem;top: 15px;
+}
+.white-border {
+  border-top: 4px solid white;
+}
+.blue-border {
+  border-top: 4px solid #5AB3D1;
+}
+.row {
+  display: flex;width: 100%;background: rgba(41, 41, 46, 0.3);box-shadow:0px 2px 15px 0px #000;
+}
+.spacingbox {
+	margin: 1em; padding: 1em; background: rgba(81, 81, 88, 0.5);color:#eee;padding: 1em;box-shadow:0px 2px 15px 0px #000;
+}
+</style>
+<script>
+/*SIDEBAR TRANSITION*/
+function Hill(hillEl, overlayEl) {
+          this.hill = $(hillEl);
+          this.overlay = $(overlayEl);
+          this.wWidth = $(window).width();
+          this.wHeight = $(window).height();
+          this.dHeight = $(document).height();
+        }
+
+        Hill.prototype = {
+          init: function(){
+            this.bindHandlers();
+          },
+
+          bindHandlers: function(){
+            var self = this;
+
+            $('#hill-link').on('click', function(){
+              self.showHill();
+            });
+
+            $(window)
+              .resize(function() {
+                self.setWinSize($(this));
+                self.setHillPosition();
+             })
+               .scroll(function() {
+                self.setWinSize($(this));
+                self.setHillPosition();
+             });
+
+            $('.close-button').click(function(){
+              self.hideHill();
+            });
+          },
+
+          showHill: function(){
+            this.overlay.fadeIn();
+            this.hill.fadeIn();
+            this.setHillPosition();
+          },
+
+          hideHill: function(){
+            this.overlay.fadeOut();
+            this.hill.fadeOut();
+          },
+
+          setHillPosition: function(){
+            var hillHeight = this.hill.outerHeight(),
+                hillWidth = this.hill.outerWidth(),
+                scrollTop = $(window).scrollTop();
+
+            if(this.wHeight < hillHeight){
+              this.hill.css('top', scrollTop);
+            } else {
+              this.hill.css('top', this.centerVertically(this.wHeight,hillHeight,scrollTop));
+            }
+
+            if(this.wWidth < hillWidth){
+              this.hill.css('left', 0);
+            } else {
+              this.hill.css('left', this.centerHorizontally(this.wWidth,hillWidth));
+            }
+          },
+
+          centerVertically: function(w, m, scroll){
+            return ((w - m)/2 + scroll);
+          },
+
+          centerHorizontally: function(w, m){
+            return (w - m)/2;
+          },
+
+          setWinSize:function(win){
+            this.wWidth = win.width();
+            this.wHeight = win.height();
+          }
+        }
+
+
+      $(document).ready(function(){
+        var hill = new Hill($('.hill-window'), $('.hill-overlay'));
+        hill.init();
+      });
+
+function Hill2(hillE2,overlayE2){this.hill2=$(hillE2);this.overlay=$(overlayE2);this.wWidth=$(window).width();this.wHeight=$(window).height();this.dHeight=$(document).height();}
+Hill2.prototype={init:function(){this.bindHandlers();},bindHandlers:function(){var self=this;$('#hill-link2').on('click',function(){self.showHill2();});$(window).resize(function(){self.setWinSize($(this));self.setHill2Position();}).scroll(function(){self.setWinSize($(this));self.setHill2Position();});$('.close-button2').click(function(){self.hideHill2();});},showHill2:function(){this.overlay.fadeIn();this.hill2.fadeIn();this.setHill2Position();},hideHill2:function(){this.overlay.fadeOut();this.hill2.fadeOut();},setHill2Position:function(){var hill2Height=this.hill2.outerHeight(),hill2Width=this.hill2.outerWidth(),scrollTop=$(window).scrollTop();if(this.wHeight<hill2Height){this.hill2.css('top',scrollTop);}else{this.hill2.css('top',this.centerVertically(this.wHeight,hill2Height,scrollTop));}
+if(this.wWidth<hill2Width){this.hill2.css('left',0);}else{this.hill2.css('left',this.centerHorizontally(this.wWidth,hill2Width));}},centerVertically:function(w,m,scroll){return((w-m)/2+scroll);},centerHorizontally:function(w,m){return(w-m)/2;},setWinSize:function(win){this.wWidth=win.width();this.wHeight=win.height();}}
+$(document).ready(function(){var hill2=new Hill2($('.hill-window2'),$('.hill-overlay2'));hill2.init();});
+
+function Hill3(hillE3,overlayE3){this.hill3=$(hillE3);this.overlay=$(overlayE3);this.wWidth=$(window).width();this.wHeight=$(window).height();this.dHeight=$(document).height();}
+Hill3.prototype={init:function(){this.bindHandlers();},bindHandlers:function(){var self=this;$('#hill-link3').on('click',function(){self.showHill3();});$(window).resize(function(){self.setWinSize($(this));self.setHill3Position();}).scroll(function(){self.setWinSize($(this));self.setHill3Position();});$('.close-button3').click(function(){self.hideHill3();});},showHill3:function(){this.overlay.fadeIn();this.hill3.fadeIn();this.setHill3Position();},hideHill3:function(){this.overlay.fadeOut();this.hill3.fadeOut();},setHill3Position:function(){var hill3Height=this.hill3.outerHeight(),hill3Width=this.hill3.outerWidth(),scrollTop=$(window).scrollTop();if(this.wHeight<hill3Height){this.hill3.css('top',scrollTop);}else{this.hill3.css('top',this.centerVertically(this.wHeight,hill3Height,scrollTop));}
+if(this.wWidth<hill3Width){this.hill3.css('left',0);}else{this.hill3.css('left',this.centerHorizontally(this.wWidth,hill3Width));}},centerVertically:function(w,m,scroll){return((w-m)/2+scroll);},centerHorizontally:function(w,m){return(w-m)/2;},setWinSize:function(win){this.wWidth=win.width();this.wHeight=win.height();}}
+$(document).ready(function(){var hill3=new Hill3($('.hill-window3'),$('.hill-overlay3'));hill3.init();});
+
+function Hill4(hillE4,overlayE4){this.hill4=$(hillE4);this.overlay=$(overlayE4);this.wWidth=$(window).width();this.wHeight=$(window).height();this.dHeight=$(document).height();}
+Hill4.prototype={init:function(){this.bindHandlers();},bindHandlers:function(){var self=this;$('#hill-link4').on('click',function(){self.showHill4();});$(window).resize(function(){self.setWinSize($(this));self.setHill4Position();}).scroll(function(){self.setWinSize($(this));self.setHill4Position();});$('.close-button4').click(function(){self.hideHill4();});},showHill4:function(){this.overlay.fadeIn();this.hill4.fadeIn();this.setHill4Position();},hideHill4:function(){this.overlay.fadeOut();this.hill4.fadeOut();},setHill4Position:function(){var hill4Height=this.hill4.outerHeight(),hill4Width=this.hill4.outerWidth(),scrollTop=$(window).scrollTop();if(this.wHeight<hill4Height){this.hill4.css('top',scrollTop);}else{this.hill4.css('top',this.centerVertically(this.wHeight,hill4Height,scrollTop));}
+if(this.wWidth<hill4Width){this.hill4.css('left',0);}else{this.hill4.css('left',this.centerHorizontally(this.wWidth,hill4Width));}},centerVertically:function(w,m,scroll){return((w-m)/2+scroll);},centerHorizontally:function(w,m){return(w-m)/2;},setWinSize:function(win){this.wWidth=win.width();this.wHeight=win.height();}}
+$(document).ready(function(){var hill4=new Hill4($('.hill-window4'),$('.hill-overlay4'));hill4.init();});
+
+function Hill5(hillE5,overlayE5){this.hill5=$(hillE5);this.overlay=$(overlayE5);this.wWidth=$(window).width();this.wHeight=$(window).height();this.dHeight=$(document).height();}
+Hill5.prototype={init:function(){this.bindHandlers();},bindHandlers:function(){var self=this;$('#hill-link5').on('click',function(){self.showHill5();});$(window).resize(function(){self.setWinSize($(this));self.setHill5Position();}).scroll(function(){self.setWinSize($(this));self.setHill5Position();});$('.close-button5').click(function(){self.hideHill5();});},showHill5:function(){this.overlay.fadeIn();this.hill5.fadeIn();this.setHill5Position();},hideHill5:function(){this.overlay.fadeOut();this.hill5.fadeOut();},setHill5Position:function(){var hill5Height=this.hill5.outerHeight(),hill5Width=this.hill5.outerWidth(),scrollTop=$(window).scrollTop();if(this.wHeight<hill5Height){this.hill5.css('top',scrollTop);}else{this.hill5.css('top',this.centerVertically(this.wHeight,hill5Height,scrollTop));}
+if(this.wWidth<hill5Width){this.hill5.css('left',0);}else{this.hill5.css('left',this.centerHorizontally(this.wWidth,hill5Width));}},centerVertically:function(w,m,scroll){return((w-m)/2+scroll);},centerHorizontally:function(w,m){return(w-m)/2;},setWinSize:function(win){this.wWidth=win.width();this.wHeight=win.height();}}
+$(document).ready(function(){var hill5=new Hill5($('.hill-window5'),$('.hill-overlay5'));hill5.init();});
+
+function Hill6(hillE6,overlayE6){this.hill6=$(hillE6);this.overlay=$(overlayE6);this.wWidth=$(window).width();this.wHeight=$(window).height();this.dHeight=$(document).height();}
+Hill6.prototype={init:function(){this.bindHandlers();},bindHandlers:function(){var self=this;$('#hill-link6').on('click',function(){self.showHill6();});$(window).resize(function(){self.setWinSize($(this));self.setHill6Position();}).scroll(function(){self.setWinSize($(this));self.setHill6Position();});$('.close-button6').click(function(){self.hideHill6();});},showHill6:function(){this.overlay.fadeIn();this.hill6.fadeIn();this.setHill6Position();},hideHill6:function(){this.overlay.fadeOut();this.hill6.fadeOut();},setHill6Position:function(){var hill6Height=this.hill6.outerHeight(),hill6Width=this.hill6.outerWidth(),scrollTop=$(window).scrollTop();if(this.wHeight<hill6Height){this.hill6.css('top',scrollTop);}else{this.hill6.css('top',this.centerVertically(this.wHeight,hill6Height,scrollTop));}
+if(this.wWidth<hill6Width){this.hill6.css('left',0);}else{this.hill6.css('left',this.centerHorizontally(this.wWidth,hill6Width));}},centerVertically:function(w,m,scroll){return((w-m)/2+scroll);},centerHorizontally:function(w,m){return(w-m)/2;},setWinSize:function(win){this.wWidth=win.width();this.wHeight=win.height();}}
+$(document).ready(function(){var hill6=new Hill6($('.hill-window6'),$('.hill-overlay6'));hill6.init();});
+/*PIZZA CHART*/
+function sliceSize(dataNum, dataTotal) {
+  return (dataNum / dataTotal) * 360;
+}
+function addSlice(sliceSize, pieElement, offset, sliceID, color) {
+  $(pieElement).append("<div class='slice "+sliceID+"'><span></span></div>");
+  var offset = offset - 1;
+  var sizeRotation = -179 + sliceSize;
+  $("."+sliceID).css({
+    "transform": "rotate("+offset+"deg) translate3d(0,0,0)"
+  });
+  $("."+sliceID+" span").css({
+    "transform"       : "rotate("+sizeRotation+"deg) translate3d(0,0,0)",
+    "background-color": color
+  });
+}
+function iterateSlices(sliceSize, pieElement, offset, dataCount, sliceCount, color) {
+  var sliceID = "s"+dataCount+"-"+sliceCount;
+  var maxSize = 179;
+  if(sliceSize<=maxSize) {
+    addSlice(sliceSize, pieElement, offset, sliceID, color);
+  } else {
+    addSlice(maxSize, pieElement, offset, sliceID, color);
+    iterateSlices(sliceSize-maxSize, pieElement, offset+maxSize, dataCount, sliceCount+1, color);
+  }
+}
+function createPie(dataElement, pieElement) {
+  var listData = [];
+  $(dataElement+" span").each(function() {
+    listData.push(Number($(this).html()));
+  });
+  var listTotal = 0;
+  for(var i=0; i<listData.length; i++) {
+    listTotal += listData[i];
+  }
+  var offset = 0;
+  var color = [
+    "#5AB3D1", 
+    "#1abc9c", 
+    "#ffbb75", 
+    "tomato"
+  ];
+  for(var i=0; i<listData.length; i++) {
+    var size = sliceSize(listData[i], listTotal);
+    iterateSlices(size, pieElement, offset, i, 0, color[i]);
+    $(dataElement+" li:nth-child("+(i+1)+")").css("border-color", color[i]);
+    offset += size;
+  }
+}
+createPie(".pieID.legend", ".pieID.pie");
+/*HORZ-BAR GRAPH*/
+HorizontalBarGraph = function(el, series) {
+  this.el = d3.select(el);
+  this.series = series;
+};
+
+HorizontalBarGraph.prototype.draw = function() {
+  var x = d3.scale.linear()
+    .domain([0, d3.max(this.series, function(d) { return d.value })])
+    .range([0, 100]);
+
+  var segment = this.el
+    .selectAll(".horizontal-bar-graph-segment")
+      .data(this.series)
+    .enter()
+      .append("div").classed("horizontal-bar-graph-segment", true);
+
+  segment
+    .append("div").classed("horizontal-bar-graph-label", true)
+      .text(function(d) { return d.label });
+
+  segment
+    .append("div").classed("horizontal-bar-graph-value", true)
+      .append("div").classed("horizontal-bar-graph-value-bar", true)
+        .style("background-color", function(d) { return d.color })
+        .text(function(d) { return d.inner_label ? d.inner_label : "" })
+        .transition()
+          .duration(1000)
+          .style("min-width", function(d) { return x(d.value) + "%" });
+
+};
+
+var graph = new HorizontalBarGraph('#my-graph', [
+  {label: "Desktop", inner_label: "865 visits", value: 1167, color: "#1abc9c" },
+  {label: "Mobile",  inner_label: "543 visits",   value: 543,  color: "#1abc9c" },
+  {label: "Tablet",  inner_label: "224 visits",   value: 224,  color: "#1abc9c" }
+]);
+graph.draw();
+/*PIE CHART*/
+$(function() {
+  $('.chartrotate').easyPieChart({
+    scaleColor: "#ecf0f1",
+    lineWidth: 20,
+    lineCap: 'butt',
+    barColor: '#1abc9c',
+    trackColor:	"#ecf0f1",
+    size: 160,
+    animate: 500
+  });
+});
+/*LINE-CHART*/
+class TimeFormatter {
+
+  static getDefault() {
+    return d3.time.format.multi([
+      // See https://github.com/mbostock/d3/wiki/Time-Formatting#format_multi
+      // which is required for a time.scale()
+      ['.%L', function(d) { return d.getMilliseconds(); }],
+      [':%S', function(d) { return d.getSeconds(); }],
+      ['%I:%M', function(d) { return d.getMinutes(); }],
+      ['%I %p', function(d) { return d.getHours(); }],
+      ['%a %d', function(d) { return d.getDay() && d.getDate() != 1; }],
+      ['%b %d', function(d) { return d.getDate() != 1; }],
+      ['%B', function(d) { return d.getMonth(); }],
+      ['%Y', function() { return true; }]
+    ]);
+  }
+}
+
+const formatDate = d3.time.format('%Y-%m-%d');
+
+function drawLineGraph (options, data) {
+  const description = '';
+
+  /** Make it less verbose to access default margin values */
+  const margin = Object.assign(options.chart.margin);
+  const width = options.chart.width - margin.left - margin.right;
+  const height = options.chart.height - margin.top - margin.bottom;
+
+  const allDates = [];
+  const allValues = [];
+
+  let xScale;
+  let yScale;
+  let xAxis;
+  let yAxis;
+  let lineData;
+
+  function prepareData(data) {
+    data.forEach((entry) => {
+      allDates.push(formatDate.parse(entry[0]));
+      allValues.push(entry[1]);
+    });
+  }
+
+  function defineScales() {
+    xScale = d3.time.scale().range([0, width]);
+    yScale = d3.scale.linear().range([height, 0]);
+  }
+
+  function defineAxes() {
+    xAxis = d3.svg.axis()
+      .scale(xScale)
+      .orient('bottom')
+      .tickPadding(10) // move tick text further away from tick lines
+      .tickSize(10, 0)
+      .ticks(5)
+      .tickFormat(TimeFormatter.getDefault());
+    yAxis = d3.svg.axis()
+      .scale(yScale)
+      .orient('left')
+      .tickPadding(10) // move tick text further away from tick lines
+      .tickSize(20, 0) // add space to the right of the y axis grid line (before the first marker)
+      .ticks(6)
+      .tickFormat((d) => { return `${d}%`; });
+  }
+
+  function defineLineData() {
+    lineData = d3.svg.line()
+      .x((d) => {
+        let date = formatDate.parse(d[0]);
+        return xScale(date);
+      })
+      .y((d) => {
+        return yScale(d[1]);
+      });
+  }
+
+  function defineScaleDomains(x, y) {
+    /** Set the domain of the axes using min/max values */
+    x.domain(d3.extent(allDates));
+    /** Given it's a percentage value from 0% to 100%, we can directly set min/max */
+    y.domain([0, 100]);
+  }
+
+  function renderGraph(options, data) {
+    /**
+     * Start rendering to the view
+     * Note:
+     *  - The styles set below are set as default. Styles should live in the graph stylesheet
+     *  - Visual order is determined by the order an element gets drawn to the 'canvas'
+     */
+    const svg = d3.select(`#${options.chart.id}`)
+      .append('svg')
+      .attr({
+        'width': options.chart.width,
+        'height': options.chart.height,
+        'xmlns': 'http://www.w3.org/2000/svg',
+        'version': '1.1','fill': '#eee','fontcolor': '#eee'
+      });
+
+    /** Roll the credits */
+    svg.append('desc').html(description);
+
+    const visualisation = svg.append('g')
+      .attr({
+        'id': 'visualisation',
+        'transform': `translate(${margin.left}, ${margin.top})`
+      });
+
+    const xAxisGroup = visualisation.append('g')
+      .attr({
+        'class': 'axis x',
+        'transform': `translate(0, ${height})`
+      })
+      .call(xAxis);
+
+    xAxisGroup.selectAll('line')
+      .attr({'stroke': '#eee'});
+
+    visualisation.append('g')
+      .attr({'class': 'axis y'})
+      .call(yAxis);
+
+    /** Add horizontal lines to the graph as reference points */
+    visualisation.append('g')
+      .attr({'class': 'grid'})
+      .call(yAxis.tickSize(-width - margin.right, 0, 0).tickFormat(''))
+      .selectAll('line')
+      .attr({'stroke': '#eee'});
+
+    visualisation.append('path')
+      .datum(data)
+      .attr({
+        'id': 'visualisation-line',
+        'stroke-linejoin': 'round',
+        'fill': 'none',
+        'fontcolor': '#eee',
+        'stroke-width': '1px',
+        'stroke': '#eee',
+        'd': lineData,
+      });
+
+    visualisation.selectAll('circle')
+      .data(data)
+      .enter()
+      .append('circle')
+      .attr({
+        'class': 'marker',
+        'r': options.chart.markerRadius,
+        'cx': (d) => {
+          let date = formatDate.parse(d[0]);
+          return xScale(date);
+        },
+        'cy': (d) => {
+          return yScale(d[1]);
+        }
+      });
+  }
+
+  prepareData(data);
+  defineScales();
+  defineAxes();
+  defineLineData();
+  defineScaleDomains(xScale, yScale);
+  renderGraph(options, data);
+}
+function drawSecondGraph(options,data){const description='';const margin=Object.assign(options.chart.margin);const width=options.chart.width-margin.left-margin.right;const height=options.chart.height-margin.top-margin.bottom;const allDates=[];const allValues=[];let xScale;let yScale;let xAxis;let yAxis;let lineData;function prepareData(data){data.forEach((entry)=>{allDates.push(formatDate.parse(entry[0]));allValues.push(entry[1]);});}
+function defineScales(){xScale=d3.time.scale().range([0,width]);yScale=d3.scale.linear().range([height,0]);}
+  function defineAxes(){xAxis=d3.svg.axis().scale(xScale).orient('bottom').tickPadding(10).tickSize(10,0).ticks(5).tickFormat(TimeFormatter.getDefault());yAxis=d3.svg.axis().scale(yScale).orient('left').tickPadding(10).tickSize(20,0).ticks(6).tickFormat((d)=>{return`${d}%`;});}
+  function defineLineData(){lineData=d3.svg.line().x((d)=>{let date=formatDate.parse(d[0]);return xScale(date);}).y((d)=>{return yScale(d[1]);});}
+  function defineScaleDomains(n,a){n.domain(d3.extent(allDates)),a.domain([0,100])}
+  function renderGraph(options,data){const svg=d3.select(`#${options.chart.id}`).append('svg').attr({'width':options.chart.width,'height':options.chart.height,'xmlns':'http://www.w3.org/2000/svg','version':'1.1','fill':'#eee','fontcolor':'#eee'});svg.append('desc').html(description);const visualisation=svg.append('g').attr({'id':'visualisation','transform':`translate(${margin.left},${margin.top})`});const xAxisGroup=visualisation.append('g').attr({'class':'axis x','transform':`translate(0,${height})`}).call(xAxis);xAxisGroup.selectAll('line').attr({'stroke':'#eee'});visualisation.append('g').attr({'class':'axis y'}).call(yAxis);visualisation.append('g').attr({'class':'grid'}).call(yAxis.tickSize(-width-margin.right,0,0).tickFormat('')).selectAll('line').attr({'stroke':'#eee'});visualisation.append('path').datum(data).attr({'id':'visualisation-line','stroke-linejoin':'round','fill':'none','fontcolor':'#eee','stroke-width':'1px','stroke':'#eee','d':lineData,});visualisation.selectAll('circle').data(data).enter().append('circle').attr({'class':'marker','r':options.chart.markerRadius,'cx':(d)=>{let date=formatDate.parse(d[0]);return xScale(date);},'cy':(d)=>{return yScale(d[1]);}});}
+  prepareData(data),defineScales(),defineAxes(),defineLineData(),defineScaleDomains(xScale,yScale),renderGraph(options,data);
+}
+function drawThirdGraph(options,data){const description='';const margin=Object.assign(options.chart.margin);const width=options.chart.width-margin.left-margin.right;const height=options.chart.height-margin.top-margin.bottom;const allDates=[];const allValues=[];let xScale;let yScale;let xAxis;let yAxis;let lineData;function prepareData(data){data.forEach((entry)=>{allDates.push(formatDate.parse(entry[0]));allValues.push(entry[1]);});}
+function defineScales(){xScale=d3.time.scale().range([0,width]);yScale=d3.scale.linear().range([height,0]);}
+  function defineAxes(){xAxis=d3.svg.axis().scale(xScale).orient('bottom').tickPadding(10).tickSize(10,0).ticks(5).tickFormat(TimeFormatter.getDefault());yAxis=d3.svg.axis().scale(yScale).orient('left').tickPadding(10).tickSize(20,0).ticks(6).tickFormat((d)=>{return`${d}%`;});}
+  function defineLineData(){lineData=d3.svg.line().x((d)=>{let date=formatDate.parse(d[0]);return xScale(date);}).y((d)=>{return yScale(d[1]);});}
+  function defineScaleDomains(n,a){n.domain(d3.extent(allDates)),a.domain([0,100])}
+  function renderGraph(options,data){const svg=d3.select(`#${options.chart.id}`).append('svg').attr({'width':options.chart.width,'height':options.chart.height,'xmlns':'http://www.w3.org/2000/svg','version':'1.1','fill':'#eee','fontcolor':'#eee'});svg.append('desc').html(description);const visualisation=svg.append('g').attr({'id':'visualisation','transform':`translate(${margin.left},${margin.top})`});const xAxisGroup=visualisation.append('g').attr({'class':'axis x','transform':`translate(0,${height})`}).call(xAxis);xAxisGroup.selectAll('line').attr({'stroke':'#eee'});visualisation.append('g').attr({'class':'axis y'}).call(yAxis);visualisation.append('g').attr({'class':'grid'}).call(yAxis.tickSize(-width-margin.right,0,0).tickFormat('')).selectAll('line').attr({'stroke':'#eee'});visualisation.append('path').datum(data).attr({'id':'visualisation-line','stroke-linejoin':'round','fill':'none','fontcolor':'#eee','stroke-width':'1px','stroke':'#eee','d':lineData,});visualisation.selectAll('circle').data(data).enter().append('circle').attr({'class':'marker','r':options.chart.markerRadius,'cx':(d)=>{let date=formatDate.parse(d[0]);return xScale(date);},'cy':(d)=>{return yScale(d[1]);}});}
+  prepareData(data),defineScales(),defineAxes(),defineLineData(),defineScaleDomains(xScale,yScale),renderGraph(options,data);
+}
+function drawFourthGraph(options,data){const description='';const margin=Object.assign(options.chart.margin);const width=options.chart.width-margin.left-margin.right;const height=options.chart.height-margin.top-margin.bottom;const allDates=[];const allValues=[];let xScale;let yScale;let xAxis;let yAxis;let lineData;function prepareData(data){data.forEach((entry)=>{allDates.push(formatDate.parse(entry[0]));allValues.push(entry[1]);});}
+function defineScales(){xScale=d3.time.scale().range([0,width]);yScale=d3.scale.linear().range([height,0]);}
+  function defineAxes(){xAxis=d3.svg.axis().scale(xScale).orient('bottom').tickPadding(10).tickSize(10,0).ticks(5).tickFormat(TimeFormatter.getDefault());yAxis=d3.svg.axis().scale(yScale).orient('left').tickPadding(10).tickSize(20,0).ticks(6).tickFormat((d)=>{return`${d}%`;});}
+  function defineLineData(){lineData=d3.svg.line().x((d)=>{let date=formatDate.parse(d[0]);return xScale(date);}).y((d)=>{return yScale(d[1]);});}
+  function defineScaleDomains(n,a){n.domain(d3.extent(allDates)),a.domain([0,100])}
+  function renderGraph(options,data){const svg=d3.select(`#${options.chart.id}`).append('svg').attr({'width':options.chart.width,'height':options.chart.height,'xmlns':'http://www.w3.org/2000/svg','version':'1.1','fill':'#eee','fontcolor':'#eee'});svg.append('desc').html(description);const visualisation=svg.append('g').attr({'id':'visualisation','transform':`translate(${margin.left},${margin.top})`});const xAxisGroup=visualisation.append('g').attr({'class':'axis x','transform':`translate(0,${height})`}).call(xAxis);xAxisGroup.selectAll('line').attr({'stroke':'#eee'});visualisation.append('g').attr({'class':'axis y'}).call(yAxis);visualisation.append('g').attr({'class':'grid'}).call(yAxis.tickSize(-width-margin.right,0,0).tickFormat('')).selectAll('line').attr({'stroke':'#eee'});visualisation.append('path').datum(data).attr({'id':'visualisation-line','stroke-linejoin':'round','fill':'none','fontcolor':'#eee','stroke-width':'1px','stroke':'#eee','d':lineData,});visualisation.selectAll('circle').data(data).enter().append('circle').attr({'class':'marker','r':options.chart.markerRadius,'cx':(d)=>{let date=formatDate.parse(d[0]);return xScale(date);},'cy':(d)=>{return yScale(d[1]);}});}
+  prepareData(data),defineScales(),defineAxes(),defineLineData(),defineScaleDomains(xScale,yScale),renderGraph(options,data);
+}
+function drawFifthGraph(options,data){const description='';const margin=Object.assign(options.chart.margin);const width=options.chart.width-margin.left-margin.right;const height=options.chart.height-margin.top-margin.bottom;const allDates=[];const allValues=[];let xScale;let yScale;let xAxis;let yAxis;let lineData;function prepareData(data){data.forEach((entry)=>{allDates.push(formatDate.parse(entry[0]));allValues.push(entry[1]);});}
+function defineScales(){xScale=d3.time.scale().range([0,width]);yScale=d3.scale.linear().range([height,0]);}
+  function defineAxes(){xAxis=d3.svg.axis().scale(xScale).orient('bottom').tickPadding(10).tickSize(10,0).ticks(5).tickFormat(TimeFormatter.getDefault());yAxis=d3.svg.axis().scale(yScale).orient('left').tickPadding(10).tickSize(20,0).ticks(6).tickFormat((d)=>{return`${d}%`;});}
+  function defineLineData(){lineData=d3.svg.line().x((d)=>{let date=formatDate.parse(d[0]);return xScale(date);}).y((d)=>{return yScale(d[1]);});}
+  function defineScaleDomains(n,a){n.domain(d3.extent(allDates)),a.domain([0,100])}
+  function renderGraph(options,data){const svg=d3.select(`#${options.chart.id}`).append('svg').attr({'width':options.chart.width,'height':options.chart.height,'xmlns':'http://www.w3.org/2000/svg','version':'1.1','fill':'#eee','fontcolor':'#eee'});svg.append('desc').html(description);const visualisation=svg.append('g').attr({'id':'visualisation','transform':`translate(${margin.left},${margin.top})`});const xAxisGroup=visualisation.append('g').attr({'class':'axis x','transform':`translate(0,${height})`}).call(xAxis);xAxisGroup.selectAll('line').attr({'stroke':'#eee'});visualisation.append('g').attr({'class':'axis y'}).call(yAxis);visualisation.append('g').attr({'class':'grid'}).call(yAxis.tickSize(-width-margin.right,0,0).tickFormat('')).selectAll('line').attr({'stroke':'#eee'});visualisation.append('path').datum(data).attr({'id':'visualisation-line','stroke-linejoin':'round','fill':'none','fontcolor':'#eee','stroke-width':'1px','stroke':'#eee','d':lineData,});visualisation.selectAll('circle').data(data).enter().append('circle').attr({'class':'marker','r':options.chart.markerRadius,'cx':(d)=>{let date=formatDate.parse(d[0]);return xScale(date);},'cy':(d)=>{return yScale(d[1]);}});}
+  prepareData(data),defineScales(),defineAxes(),defineLineData(),defineScaleDomains(xScale,yScale),renderGraph(options,data);
+}
+const graphOptions = {
+  chart: {
+    margin: {
+      top: 20,
+      right: 30,
+      bottom: 30,
+      left: 70
+    },
+    width: 620,
+    height: 280,
+    id: 'Graph',
+    markerRadius: 5
+  },
+};
+const graphSecondOptions = {
+  chart: {
+    margin: {
+      top: 20,
+      right: 30,
+      bottom: 30,
+      left: 70
+    },
+    width: 620,
+    height: 280,
+    id: 'Graph2',
+    markerRadius: 5
+  },
+};
+const graphThirdOptions = {
+  chart: {
+    margin: {
+      top: 20,
+      right: 30,
+      bottom: 30,
+      left: 70
+    },
+    width: 620,
+    height: 280,
+    id: 'Graph3',
+    markerRadius: 5
+  },
+};
+const graphFourthOptions = {
+  chart: {
+    margin: {
+      top: 20,
+      right: 30,
+      bottom: 30,
+      left: 70
+    },
+    width: 620,
+    height: 280,
+    id: 'Graph4',
+    markerRadius: 5
+  },
+};
+const graphFifthOptions = {
+  chart: {
+    margin: {
+      top: 20,
+      right: 30,
+      bottom: 30,
+      left: 70
+    },
+    width: 620,
+    height: 280,
+    id: 'Graph5',
+    markerRadius: 5
+  },
+};
+
+const graphData = new Array();
+for (let i = 0; i < 1; i++) {
+  for (let y = 0; y < 7; y++) {
+    graphData.push([`2016-${i+1}-${y+1}`, Math.round(Math.random() * 100 / 10) * 10]);
+  }
+}
+const graphSecondData = new Array();
+for (let i = 0; i < 1; i++) {
+  for (let y = 0; y < 7; y++) {
+    graphSecondData.push([`2016-${i+1}-${y+1}`, Math.round(Math.random() * 100 / 10) * 10]);
+  }
+}
+const graphThirdData = new Array();
+for (let i = 0; i < 1; i++) {
+  for (let y = 0; y < 7; y++) {
+    graphThirdData.push([`2016-${i+1}-${y+1}`, Math.round(Math.random() * 100 / 10) * 10]);
+  }
+}
+const graphFourthData = new Array();
+for (let i = 0; i < 1; i++) {
+  for (let y = 0; y < 7; y++) {
+    graphFourthData.push([`2016-${i+1}-${y+1}`, Math.round(Math.random() * 100 / 10) * 10]);
+  }
+}
+const graphFifthData = new Array();
+for (let i = 0; i < 1; i++) {
+  for (let y = 0; y < 7; y++) {
+    graphFifthData.push([`2016-${i+1}-${y+1}`, Math.round(Math.random() * 100 / 10) * 10]);
+  }
+}
+drawLineGraph(graphOptions, graphData);
+drawSecondGraph(graphSecondOptions, graphSecondData);
+drawThirdGraph(graphThirdOptions, graphThirdData);
+drawFourthGraph(graphFourthOptions, graphFourthData);
+drawFifthGraph(graphFifthOptions, graphFifthData);
+
+/*BODY TRANSITIONS*/
+	$(".tab__content").hide();
+	$(".tab__content:first").hide();
+	$("#tab1").show();
+	$(".tab__head li").removeClass("active");
+	$("#t1").addClass("active");
+	$(".tab__head li").click(function() {
+	$(".tab__content").hide();
+	var activeTab = $(this).attr("rel"); 
+	$("#"+activeTab).show();
+	$(".tab__head li").removeClass("active");
+	$(this).addClass("active");
+});
+/*CDN SEARCH*/
+	var searchIndex = ["404 Error","Address Bar","Ajax","Apache","Autoresponder","BitTorrent","Blog","Bookmark","Bot","Broadband","Captcha","Certificate","Client","Cloud","Cloud Computing","CMS","Cookie","CSS","Cyberspace","Denial of Service","DHCP","Dial-up","DNS Record","Domain Name","Download","E-mail","Facebook","FiOS","Firewall","FTP","Gateway","Google","Google Drive","Gopher","Hashtag","Hit","Home Page","HTML","HTTP","HTTPS","Hyperlink","Hypertext","ICANN","Inbox","Internet","InterNIC","IP","IP Address","IPv4","IPv6","IRC","iSCSI","ISDN","ISP","JavaScript","jQuery","Meta Search Engine","Meta Tag","Minisite","Mirror","Name Server","Packet","Page View","Payload","Phishing","POP3","Protocol","Scraping","Search Engine","Social Networking","Socket","Spam","Spider","Spoofing","SSH","SSL","Static Website","Twitter","XHTML"];
+
+var input = document.getElementById("searchBox"),
+    ul = document.getElementById("searchResults"),
+    inputTerms, termsArray, prefix, terms, results, sortedResults;
+
+
+var search = function() {
+  inputTerms = input.value.toLowerCase();
+  results = [];
+  termsArray = inputTerms.split(' ');
+  prefix = termsArray.length === 1 ? '' : termsArray.slice(0, -1).join(' ') + ' ';
+  terms = termsArray[termsArray.length -1].toLowerCase();
+  
+  for (var i = 0; i < searchIndex.length; i++) {
+    var a = searchIndex[i].toLowerCase(),
+        t = a.indexOf(terms);
+    
+    if (t > -1) {
+      results.push(a);
+    }
+  }
+  
+  evaluateResults();
+};
+
+var evaluateResults = function() {
+  if (results.length > 0 && inputTerms.length > 0 && terms.length !== 0) {
+    sortedResults = results.sort(sortResults);
+    appendResults();
+  } 
+  else if (inputTerms.length > 0 && terms.length !== 0) {
+    ul.innerHTML = '<li>Whoah! <strong>' 
+      + inputTerms 
+      + '</strong> is not in the index. <br><small><a onclick="myFunction()" href="?q=' 
+      + encodeURIComponent(inputTerms) + '">Index Now</a></small></li>';
+    
+  }
+  else if (inputTerms.length !== 0 && terms.length === 0) {
+    return;
+  }
+  else {
+    clearResults();
+  }
+};
+
+var sortResults = function (a,b) {
+  if (a.indexOf(terms) < b.indexOf(terms)) return -1;
+  if (a.indexOf(terms) > b.indexOf(terms)) return 1;
+  return 0;
+}
+
+var appendResults = function () {
+  clearResults();
+  
+  for (var i=0; i < sortedResults.length && i < 5; i++) {
+    var li = document.createElement("li"),
+        result = prefix 
+          + sortedResults[i].toLowerCase().replace(terms, '<strong>' 
+          + terms 
+          +'</strong>');
+    
+    li.innerHTML = result;
+    ul.appendChild(li);
+  }
+  
+  if ( ul.className !== "term-list") {
+    ul.className = "term-list";
+  }
+};
+
+var clearResults = function() {
+  ul.className = "term-list hidden";
+  ul.innerHTML = '';
+};
+function myFunction() {
+	confirm("Changes Indexed").reset();
+	button.getElementById("submitButton").reset();
+}
+input.addEventListener("keyup", search, false);
+/*MONITOR*/
+var frm_elements = oForm.elements;
+/*ORDER SCROLL SCRIPT*/
+var orderItemH = document.getElementById('order-item').clientHeight;
+console.log(orderItemH);
+var orderContainer = document.getElementById('order-container');
+var statsElementH = document.getElementById('stats-element').clientHeight;
+var initialAmount = Math.floor((statsElementH - 150) / orderItemH);
+var totalAmount = document.getElementsByClassName('order-item').length + 1;
+console.log(initialAmount + ' items can be displayed');
+orderContainer.style.height = (initialAmount * (orderItemH + 10)) + 'px';
+
+document.getElementById('order-scrolldown').addEventListener('click', function() {
+  scrollOrder(orderContainer.scrollTop + orderItemH + 14);
+});
+document.getElementById('order-scrollup').addEventListener('click', function() {
+  scrollOrderUp(orderContainer.scrollTop - orderItemH - 14);
+});
+
+window.onresize = function() {
+  orderItemH = document.getElementById('order-item').clientHeight;
+  statsElementH = document.getElementById('stats-element').clientHeight;
+  initialAmount = Math.floor((statsElementH) / orderItemH);
+  totalAmount = document.getElementsByClassName('order-item').length + 1;
+  orderContainer.style.height = (initialAmount * (orderItemH + 15)) + 'px';
+}
+
+function scrollOrder(max) {
+  if (orderContainer.scrollTop <= max && max < (totalAmount - initialAmount) * orderItemH) {
+    console.log(orderItemH)
+    window.setTimeout(function() {
+      orderContainer.scrollTop += 5;
+      scrollOrder(max);
+    }, 2)
+  }
+}
+
+function scrollOrderUp(goal) {
+  if (orderContainer.scrollTop >= goal && orderContainer.scrollTop > 0) {
+    orderContainer.scrollTop -= 5;
+    window.setTimeout(function() {
+      scrollOrderUp(goal);
+    }, 2)
+  }
+}
+</script>
